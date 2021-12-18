@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.0'
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
+gem 'clearance', '~> 2.5'
 gem 'importmap-rails' # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0' # Use the Puma web server [https://github.com/puma/puma]
