@@ -1,0 +1,11 @@
+# See https://docs.rubocop.org/rubocop/configuration
+require:
+  - rubocop-rails
+  - rubocop-performance
+AllCops:
+  NewCops: enable
+Layout/LineLength:
+  Enabled: true
+  IgnoredPatterns: ['(\A|\s)#'] # ignored comment line
+Style/Documentation:
+  Enabled: false
