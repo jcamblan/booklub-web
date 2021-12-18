@@ -5,8 +5,9 @@ module.exports = {
   content: [
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*'
-  ],  
+    './app/views/**/*',
+    './app/components/**/*.html.erb',
+  ],
   theme: {
     extend: {
       fontFamily: {

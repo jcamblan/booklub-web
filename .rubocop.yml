@@ -9,3 +9,6 @@ Layout/LineLength:
   IgnoredPatterns: ['(\A|\s)#'] # ignored comment line
 Style/Documentation:
   Enabled: false
+Lint/MissingSuper:
+   Exclude:
+    - 'app/components/**/*'
