@@ -7,7 +7,6 @@ ruby '3.1.0'
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'importmap-rails' # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem 'jbuilder' # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0' # Use the Puma web server [https://github.com/puma/puma]
 gem 'rails', '~> 7.0.0' # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -20,6 +19,9 @@ gem 'stimulus-rails' # Hotwire's modest JavaScript framework [https://stimulus.h
 gem 'tailwindcss-rails' # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem 'turbo-rails' # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+# gem 'jbuilder'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
