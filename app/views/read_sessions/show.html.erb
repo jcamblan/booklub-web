@@ -1,0 +1,16 @@
+<div class="self-center justify-self-center flex-col flex mx-auto w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <%= render 'head', read_session: @read_session  %>
+
+  <%= render 'top_cards', read_session: @read_session  %>
+
+  <hr class="my-5">
+
+  <%= render 'proposals', read_session: @read_session  %>
+
+  <%= render(ButtonComponent.new) { link_to t('.join'), sign_up_path } %>
+
+</div>

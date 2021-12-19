@@ -7,7 +7,7 @@ fr:
             password:
               invalid_current_password: "Le mot passe actuel est nécessaire pour modifier l'email ou le mot de passe"
   models:
-    session:
+    read_session:
       state:
         submission: Inscription
         draw: Tirage au sort
@@ -45,3 +45,6 @@ fr:
   clubs:
     form:
       create_club: Créer mon club
+  time:
+    formats:
+      long: toto

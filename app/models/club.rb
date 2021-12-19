@@ -5,7 +5,7 @@ class Club < ApplicationRecord
 
   has_many :club_users, dependent: :destroy
   has_many :users, through: :club_users
-  has_many :sessions
+  has_many :read_sessions, dependent: :destroy
 
   before_validation :generate_invitation_code, on: :create
   after_commit :add_manager_to_users

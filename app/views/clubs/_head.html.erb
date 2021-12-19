@@ -1,4 +1,11 @@
 <div id="<%= dom_id club %>">
+  <div class="text-indigo-500">
+    <%= link_to root_path do %>
+      <i class="fa fa-angle-left"></i>
+      <span>Back</span>
+    <% end %>
+  </div>
+
   <h1 class="my-5 text-2xl font-bold">
     <%= club.name %>
   </h1>

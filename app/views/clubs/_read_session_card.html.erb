@@ -1,0 +1,18 @@
+<div class="bg-gray-100 dark:bg-zinc-800 px-3 py-6 rounded-xl space-y-6">
+  <div class="space-y-3">
+    <%= link_to session.name, session, class: "text-lg font-semibold leading-6" %>
+    <p class="uppercase text-xs text-zinc-400 font-semibold space-x-1">
+      <% if session.state == 'submission' %>
+        <i class="fas fa-clock text-indigo-500"></i>
+        <span>
+          <%= t('.starts') %>
+          <%= time_tag session.submission_due_date, 'data-local': 'time-ago' %>
+        </span>
+      <% else %>
+        <span>
+          <%= session.state %>
+        </span>
+      <% end %>
+    </p>
+  </div>
+</div>

@@ -4,8 +4,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :clubs
-  get 'home/index'
+  # get 'home/index'rails
   resources :passwords, controller: 'clearance/passwords', only: %i[create new]
   resource :session, controller: 'clearance/sessions', only: [:create]
 
@@ -16,6 +15,12 @@ Rails.application.routes.draw do
   get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
   delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
   get '/sign_up' => 'clearance/users#new', as: 'sign_up'
+
+  resources :clubs do
+    resources :read_sessions, only: %i[create new show], shallow: true do
+      resources :submissions, only: %i[new create]
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

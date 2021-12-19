@@ -3,6 +3,18 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <%= render partial: 'head', locals: { club: @club } %>
-  <%= render partial: 'sessions', locals: { club: @club } %>
+  <%= render 'head', club: @club  %>
+
+  <%= render 'read_sessions', club: @club  %>
+
+  <hr class="my-5">
+
+  <%= render 'last_books', club: @club %>
+
+  <hr class="my-5">
+
+  <%= render 'members', club: @club %>
+
+  <%= render(ButtonComponent.new(variant: 2)) { link_to t('.leave'), sign_up_path } %>
+
 </div>

@@ -1,0 +1,7 @@
+<h2><%= t('.members') %></h2>
+
+<% club.users.each do |member| %>
+  <p>
+    - <%= member.username%> (<%= club_sessions_count(club, current_user) %> <%= t('.read_sessions') %>)
+  </p>
+<% end %>

@@ -1,4 +1,6 @@
+<% default_value = local_assigns[:default_value].nil? ? '' :  local_assigns[:default_value] %>
+
 <div class="<%= "#{name}-field my-2" %>">
   <%= form.label label, class: "block text-sm font-medium text-gray-700 dark:text-zinc-200" %>
-  <%= form.text_field name, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:text-black" %>
+  <%= form.text_field name, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:text-black", value: default_value %>
 </div>

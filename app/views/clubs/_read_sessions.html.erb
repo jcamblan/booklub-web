@@ -1,0 +1,7 @@
+<% club.read_sessions.unarchived.each do |session| %>
+  <%= render 'read_session_card', session: session %>
+<% end %>
+
+<% if club.read_sessions.active.empty? %>
+  <%= render(ButtonComponent.new) { link_to t('.create'), new_club_read_session_path(club) } %>
+<% end %>

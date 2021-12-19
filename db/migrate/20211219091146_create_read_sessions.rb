@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateSessions < ActiveRecord::Migration[7.0]
+class CreateReadSessions < ActiveRecord::Migration[7.0]
   def change
-    create_table :sessions, id: :uuid do |t|
+    create_table :read_sessions, id: :uuid do |t|
       t.string :name
       t.datetime :next_step_date
       t.datetime :read_due_date
