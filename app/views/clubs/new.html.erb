@@ -1,0 +1,8 @@
+<div class="self-center justify-self-center flex-col flex mx-auto w-full">
+  <h1 class="text-lg font-bold text-4xl">New club</h1>
+
+  <%= render "form", club: @club %>
+
+  <%= render(ButtonComponent.new(variant: 2)) { link_to 'Back to clubs', clubs_path } %>
+
+</div>

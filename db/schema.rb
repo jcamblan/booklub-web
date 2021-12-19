@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_18_103718) do
+ActiveRecord::Schema.define(version: 2021_12_18_204819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "club_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "club_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_club_users_on_club_id"
+    t.index ["user_id"], name: "index_club_users_on_user_id"
+  end
+
+  create_table "clubs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "invitation_code"
+    t.string "name"
+    t.uuid "owner_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_clubs_on_name"
+    t.index ["owner_id"], name: "index_clubs_on_owner_id"
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -28,4 +47,7 @@ ActiveRecord::Schema.define(version: 2021_12_18_103718) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "club_users", "clubs"
+  add_foreign_key "club_users", "users"
+  add_foreign_key "clubs", "users", column: "owner_id"
 end

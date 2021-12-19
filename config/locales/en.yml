@@ -23,7 +23,7 @@ en:
     form:
       text_input:
         email: Email
-        club_name: Nom du club
+        name: Nom du club
       password_input:
         password: Mot de passe
   users:
@@ -44,4 +44,5 @@ en:
       member: membre
   clubs:
     form:
-      create_club: Créer mon club
+      create_club: Create club
+      name: Club's name
