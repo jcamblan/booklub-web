@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class ClubUserTest < ActiveSupport::TestCase
+class SubmissionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
@@ -10,16 +10,18 @@ end
 
 # == Schema Information
 #
-# Table name: club_users
+# Table name: submissions
 #
 #  id         :uuid             not null, primary key
+#  book_id    :uuid             not null
+#  session_id :uuid             not null
 #  user_id    :uuid             not null
-#  club_id    :uuid             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_club_users_on_club_id  (club_id)
-#  index_club_users_on_user_id  (user_id)
+#  index_submissions_on_book_id     (book_id)
+#  index_submissions_on_session_id  (session_id)
+#  index_submissions_on_user_id     (user_id)
 #

@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_18_204819) do
+ActiveRecord::Schema.define(version: 2021_12_19_092511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "author_books", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "author_id", null: false
+    t.uuid "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_author_books_on_author_id"
+    t.index ["book_id"], name: "index_author_books_on_book_id"
+  end
+
+  create_table "authors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "books", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.float "average_note"
+    t.integer "note_count"
+    t.integer "selection_count"
+    t.integer "submission_count"
+    t.string "title"
+    t.string "google_book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "club_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
@@ -34,6 +60,31 @@ ActiveRecord::Schema.define(version: 2021_12_18_204819) do
     t.index ["owner_id"], name: "index_clubs_on_owner_id"
   end
 
+  create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.datetime "next_step_date", precision: 6
+    t.datetime "read_due_date", precision: 6
+    t.string "state"
+    t.datetime "submission_due_date", precision: 6
+    t.uuid "club_id", null: false
+    t.uuid "selected_book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_sessions_on_club_id"
+    t.index ["selected_book_id"], name: "index_sessions_on_selected_book_id"
+  end
+
+  create_table "submissions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "book_id", null: false
+    t.uuid "session_id", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_submissions_on_book_id"
+    t.index ["session_id"], name: "index_submissions_on_session_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,7 +98,14 @@ ActiveRecord::Schema.define(version: 2021_12_18_204819) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "author_books", "authors"
+  add_foreign_key "author_books", "books"
   add_foreign_key "club_users", "clubs"
   add_foreign_key "club_users", "users"
   add_foreign_key "clubs", "users", column: "owner_id"
+  add_foreign_key "sessions", "books", column: "selected_book_id"
+  add_foreign_key "sessions", "clubs"
+  add_foreign_key "submissions", "books"
+  add_foreign_key "submissions", "sessions"
+  add_foreign_key "submissions", "users"
 end

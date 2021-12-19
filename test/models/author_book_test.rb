@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class ClubUserTest < ActiveSupport::TestCase
+class AuthorBookTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
@@ -10,16 +10,16 @@ end
 
 # == Schema Information
 #
-# Table name: club_users
+# Table name: author_books
 #
 #  id         :uuid             not null, primary key
-#  user_id    :uuid             not null
-#  club_id    :uuid             not null
+#  author_id  :uuid             not null
+#  book_id    :uuid             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_club_users_on_club_id  (club_id)
-#  index_club_users_on_user_id  (user_id)
+#  index_author_books_on_author_id  (author_id)
+#  index_author_books_on_book_id    (book_id)
 #

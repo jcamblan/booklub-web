@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 class Club < ApplicationRecord
   belongs_to :owner, class_name: 'User'
 
   has_many :club_users, dependent: :destroy
   has_many :users, through: :club_users
+  has_many :sessions
 
   before_validation :generate_invitation_code, on: :create
   after_commit :add_manager_to_users
@@ -30,3 +33,20 @@ class Club < ApplicationRecord
     users << owner unless users.include?(owner)
   end
 end
+
+# == Schema Information
+#
+# Table name: clubs
+#
+#  id              :uuid             not null, primary key
+#  invitation_code :string
+#  name            :string
+#  owner_id        :uuid             not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_clubs_on_name      (name)
+#  index_clubs_on_owner_id  (owner_id)
+#

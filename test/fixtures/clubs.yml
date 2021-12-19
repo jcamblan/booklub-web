@@ -9,3 +9,20 @@ two:
   invitation_code: MyString
   name: MyString
   owner: two
+
+# == Schema Information
+#
+# Table name: clubs
+#
+#  id              :uuid             not null, primary key
+#  invitation_code :string
+#  name            :string
+#  owner_id        :uuid             not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_clubs_on_name      (name)
+#  index_clubs_on_owner_id  (owner_id)
+#
