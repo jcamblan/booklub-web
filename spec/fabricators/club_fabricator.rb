@@ -18,6 +18,7 @@ end
 #
 # Indexes
 #
-#  index_clubs_on_name      (name)
-#  index_clubs_on_owner_id  (owner_id)
+#  index_clubs_on_invitation_code  (invitation_code) UNIQUE
+#  index_clubs_on_name             (name)
+#  index_clubs_on_owner_id         (owner_id)
 #

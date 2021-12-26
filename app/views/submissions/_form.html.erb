@@ -1,0 +1,21 @@
+<%= form_for :submission, url: read_session_submissions_path do |form| %>
+  <% if @submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+        <% @submission.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :book_attributes do |book_field| %>
+    <%= render '/components/form/text_input', name: :title, form: book_field, label: t('.title')  %>
+    <%= render '/components/form/text_input', name: :authors, form: book_field, label: t('.authors')  %>
+    <%= render '/components/form/text_input', name: :google_book_id, form: book_field, label: t('.google_book_id')  %>
+  <% end %>
+
+  <%= render partial: '/components/form/submit', locals: { form: form, text: t(".join")} %>
+<% end %>

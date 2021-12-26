@@ -1,14 +1,30 @@
 # frozen_string_literal: true
 
 class Club < ApplicationRecord
+  # == Constants ===============================================================
+  # == Attributes ==============================================================
+  # == Extensions ==============================================================
+  # == Relationships ===========================================================
+
   belongs_to :owner, class_name: 'User'
 
   has_many :club_users, dependent: :destroy
   has_many :users, through: :club_users
   has_many :read_sessions, dependent: :destroy
 
+  # == Validations =============================================================
+
+  validates :invitation_code, presence: true, uniqueness: true
+  validates :name, presence: true
+
+  # == Scopes ==================================================================
+  # == Callbacks ===============================================================
+
   before_validation :generate_invitation_code, on: :create
   after_commit :add_manager_to_users
+
+  # == Class Methods ===========================================================
+  # == Instance Methods ========================================================
 
   # generate a new unique code and assign it to instance
   # save is still required.
@@ -47,6 +63,7 @@ end
 #
 # Indexes
 #
-#  index_clubs_on_name      (name)
-#  index_clubs_on_owner_id  (owner_id)
+#  index_clubs_on_invitation_code  (invitation_code) UNIQUE
+#  index_clubs_on_name             (name)
+#  index_clubs_on_owner_id         (owner_id)
 #

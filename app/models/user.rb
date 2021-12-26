@@ -1,10 +1,24 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # == Constants ===============================================================
+  # == Attributes ==============================================================
+  # == Extensions ==============================================================
+
   include Clearance::User
+
+  # == Relationships ===========================================================
 
   has_many :club_users, dependent: :destroy
   has_many :clubs, through: :club_users
+  has_many :sessions, through: :clubs
+  has_many :submissions, dependent: :destroy
+
+  # == Validations =============================================================
+  # == Scopes ==================================================================
+  # == Callbacks ===============================================================
+  # == Class Methods ===========================================================
+  # == Instance Methods ========================================================
 end
 
 # == Schema Information

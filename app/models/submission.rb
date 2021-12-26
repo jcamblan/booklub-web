@@ -1,9 +1,25 @@
 # frozen_string_literal: true
 
 class Submission < ApplicationRecord
-  belongs_to :book
-  belongs_to :read_session
+  # == Constants ===============================================================
+  # == Attributes ==============================================================
+  # == Extensions ==============================================================
+  # == Relationships ===========================================================
+
+  belongs_to :read_session, touch: true
   belongs_to :user
+  belongs_to :book
+
+  accepts_nested_attributes_for :book
+
+  # == Validations =============================================================
+
+  validates :user_id, uniqueness: { scope: :read_session_id }
+
+  # == Scopes ==================================================================
+  # == Callbacks ===============================================================
+  # == Class Methods ===========================================================
+  # == Instance Methods ========================================================
 end
 
 # == Schema Information

@@ -1,0 +1,8 @@
+<div class="self-center justify-self-center flex-col flex mx-auto w-full">
+  <h1 class="text-lg font-bold text-4xl"><%= t('.new_session') %></h1>
+
+  <%= render "form", read_session: @read_session %>
+
+  <%= render(ButtonComponent.new(variant: 2)) { link_to t('.back_to_read_session'), read_session_path(@read_session) } %>
+
+</div>

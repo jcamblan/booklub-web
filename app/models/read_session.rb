@@ -77,6 +77,10 @@ class ReadSession < ApplicationRecord
   # == Class Methods ===========================================================
   # == Instance Methods ========================================================
 
+  def submitted_books
+    Book.where_assoc_exists(:submissions, read_session_id: id)
+  end
+
   def selected_book_submitters
     return if %w[submission draw].include?(state)
 

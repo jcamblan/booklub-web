@@ -1,3 +1,4 @@
+---
 en:
   activerecord:
     errors:
@@ -5,54 +6,66 @@ en:
         user:
           attributes:
             password:
-              invalid_current_password: "Le mot passe actuel est nécessaire pour modifier l'email ou le mot de passe"
-  models:
-    read_session:
-      state:
-        submission: Inscription
-        draw: Tirage au sort
-        reading: Lecture en cours
-        conclusion: Compte-rendu
-        archived: Archivé
-  sessions:
-    form:
-      sign_in: &sign_in Se connecter
-      forgot_password: Mot de passe oublié
-      sign_up: &sign_up Créer un compte
-  components:
-    form:
-      text_input:
-        email: Email
-        name: Nom du club
-      password_input:
-        password: Mot de passe
-  users:
-    new:
-      sign_up: *sign_up
-      sign_in: *sign_in
-  passwords:
-    new:
-      reset_password: Réinitialiser mon mot de passe
-      sign_in: *sign_in
-  home:
-    no_club:
-      call_to_join_club: Create or join your first book club and start reading!
-      hey: Salut, %{name} !
-      join_club: Rejoindre un club
-      create_club: Créer un club
-    index:
-      member: membre
+              invalid_current_password: Le mot passe actuel est nécessaire pour modifier l'email ou le mot de passe
   clubs:
     form:
       create_club: Create club
       name: Club's name
+  components:
+    form:
+      password_input:
+        password: Mot de passe
+      text_input:
+        email: Email
+        name: Nom du club
+  home:
+    index:
+      member: membre
+      join_club: Join club
+    no_club:
+      call_to_join_club: Create or join your first book club and start reading!
+      create_club: Créer un club
+      hey: Salut, %{name} !
+      join_club: Rejoindre un club
+  models:
+    read_session:
+      state:
+        archived: Archivé
+        conclusion: Compte-rendu
+        draw: Tirage au sort
+        reading: Lecture en cours
+        submission: Inscription
+  passwords:
+    new:
+      reset_password: Réinitialiser mon mot de passe
+      sign_in: Se connecter
   read_sessions:
+    form:
+      create: Create session
+      next_session_name: 'Session #%{number}'
+      read_due_date: Read limit date
+      session_name: Session's name
+      submission_due_date: Inscription end date
     new:
       back_to_club: Back to club
       new_session: Start new session
+    show:
+      submitted_by: By %{submitters}
+  sessions:
     form:
-      read_due_date: Read limit date
-      submission_due_date: Inscription end date
-      session_name: Session's name
-      next_session_name: "Session #%{number}"
-      create: Create session
+      forgot_password: Mot de passe oublié
+      sign_in: Se connecter
+      sign_up: Créer un compte
+      email: Email
+  submissions:
+    form:
+      authors: Authors
+      google_book_id: Google Book ID
+      join: Join session
+      title: Title
+    new:
+      back_to_read_session: Back to session
+  users:
+    new:
+      sign_in: Se connecter
+      sign_up: Créer un compte

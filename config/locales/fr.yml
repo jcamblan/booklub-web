@@ -19,6 +19,7 @@ fr:
       sign_in: &sign_in Se connecter
       forgot_password: Mot de passe oublié
       sign_up: &sign_up Créer un compte
+      email: Email
   components:
     form:
       text_input:
