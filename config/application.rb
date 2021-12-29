@@ -28,6 +28,6 @@ module BooklubWeb
       g.jbuilder = false
     end
 
-    config.i18n.default_locale = 'en'
+    config.i18n.default_locale = 'fr'
   end
 end

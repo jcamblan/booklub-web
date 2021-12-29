@@ -13,7 +13,7 @@ class FetchGoogleBookAttributesJob < ApplicationJob
     result = RestClient.get(base_uri + book.google_book_id)
     json = JSON.parse(result.body).deep_symbolize_keys
 
-    book.assign_attributes(
+    book.update!(
       title: json.dig(:volumeInfo, :title),
       authors: (json.dig(:volumeInfo, :authors) || []).map do |name|
                  Author.find_or_initialize_by(name: name)
@@ -26,7 +26,7 @@ class FetchGoogleBookAttributesJob < ApplicationJob
                    &.first&.last
     return unless file_url
 
-    file = URI.parse(json.dig(:volumeInfo, :imageLinks, :large)).open
+    file = URI.parse(file_url).open
 
     book.cover.attach(io: file, filename: 'cover')
 

@@ -11,6 +11,7 @@ gem 'bootsnap', require: false # Reduces boot times through caching; required in
 gem 'clearance', '~> 2.5'
 gem 'fabrication'
 gem 'faker'
+gem 'image_processing', '~> 1.12'
 gem 'importmap-rails' # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0' # Use the Puma web server [https://github.com/puma/puma]
@@ -20,6 +21,8 @@ gem 'rest-client'
 gem 'rubocop', '~> 1.23'
 gem 'rubocop-performance', '~> 1.12'
 gem 'rubocop-rails', '~> 2.12'
+gem 'sidekiq', '~> 6.3'
+gem 'sidekiq-scheduler', '~> 3.1'
 gem 'sprockets-rails' # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'stimulus-rails' # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'tailwindcss-rails' # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
@@ -59,7 +62,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'sidekiq', '~> 6.3'
-
-gem 'image_processing', '~> 1.12'

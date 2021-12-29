@@ -1,2 +1,8 @@
 <h2><%= t('.last_books') %></h2>
 <p>BOOK LIST PLACEHOLDER</p>
+
+<ul>
+  <% club.read_sessions.each do |read_session| %>
+    <li><%= link_to read_session.name, read_session %></li>
+  <% end %>
+</ul>

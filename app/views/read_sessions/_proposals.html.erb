@@ -6,7 +6,7 @@
       <div  class="swiper-slide">
         <div class="rounded-lg">
           <% if book.cover.present?%>
-            <%= image_tag rails_storage_proxy_path(book.cover), class: "rounded-lg max-h-56" %>
+            <%= image_tag book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
           <% end %>
         </div>
         <h3><%= book.title %></h3>

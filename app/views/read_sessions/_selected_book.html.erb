@@ -2,7 +2,7 @@
 
 <div class="flex flex-row space-x-3">
   <div class="rounded-lg">
-    <%= image_tag '/placeholder.jpeg', class: "rounded-lg max-h-56" %>
+    <%= image_tag book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
   </div>
   <div class="flex-col">
     <h3><%= book.title %></h3>

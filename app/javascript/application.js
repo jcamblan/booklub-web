@@ -2,6 +2,5 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import LocalTime from "local-time"
-import 'swiper/css/bundle'
 
 LocalTime.start()

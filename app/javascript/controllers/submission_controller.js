@@ -6,7 +6,10 @@ export default class extends Controller {
   add(event) {
     document
       .getElementById("inputBookGoogleId")
-      .setAttribute('value', event.target.getAttribute('bookGoogleId'))
+      .setAttribute('value', event.target.getAttribute('bookGoogleId'));
+    document
+      .getElementById("inputBookTitle")
+      .setAttribute('value', event.target.getAttribute('bookTitle'));
     this.submitTarget.click()
   }
 

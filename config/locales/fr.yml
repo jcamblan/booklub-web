@@ -1,3 +1,4 @@
+---
 fr:
   activerecord:
     errors:
@@ -5,47 +6,68 @@ fr:
         user:
           attributes:
             password:
-              invalid_current_password: "Le mot passe actuel est nécessaire pour modifier l'email ou le mot de passe"
-  models:
-    read_session:
-      state:
-        submission: Inscription
-        draw: Tirage au sort
-        reading: Lecture en cours
-        conclusion: Compte-rendu
-        archived: Archivé
-  sessions:
-    form:
-      sign_in: &sign_in Se connecter
-      forgot_password: Mot de passe oublié
-      sign_up: &sign_up Créer un compte
-      email: Email
-  components:
-    form:
-      text_input:
-        email: Email
-        club_name: Nom du club
-      password_input:
-        password: Mot de passe
-  users:
-    new:
-      sign_up: *sign_up
-      sign_in: *sign_in
-  passwords:
-    new:
-      reset_password: Réinitialiser mon mot de passe
-      sign_in: *sign_in
-  home:
-    no_club:
-      call_to_join_club: Create or join your first book club and start reading!
-      hey: Salut, %{name} !
-      join_club: Rejoindre un club
-      create_club: Créer un club
-    index:
-      member: membre
+              invalid_current_password: Le mot passe actuel est nécessaire pour modifier l'email ou le mot de passe
   clubs:
     form:
       create_club: Créer mon club
+    last_books:
+      last_books: Dernières lectures
+    members:
+      members: Membres du club
+      read_sessions: sessions
+    show:
+      leave: Quitter le club
+  components:
+    form:
+      password_input:
+        password: Mot de passe
+      text_input:
+        club_name: Nom du club
+        email: Email
+  home:
+    index:
+      create_club: Créer un club
+      join_club: Rejoindre un club
+      member: membre
+      my_clubs: Mes clubs
+    no_club:
+      call_to_join_club: Create or join your first book club and start reading!
+      hey: Salut, %{name} !
+  models:
+    read_session:
+      state:
+        archived: Archivé
+        conclusion: Compte-rendu
+        draw: Tirage au sort
+        reading: Lecture en cours
+        submission: Inscription
+  passwords:
+    new:
+      reset_password: Réinitialiser mon mot de passe
+      sign_in: Se connecter
+  sessions:
+    form:
+      email: Email
+      forgot_password: Mot de passe oublié
+      sign_in: Se connecter
+      sign_up: Créer un compte
   time:
     formats:
       long: toto
+  users:
+    new:
+      sign_in: Se connecter
+      sign_up: Créer un compte
+  read_sessions:
+    show:
+      submit-book: Proposer un livre
+    proposals:
+      book_proposals: Propositions de livres
+      submitted_by: par %{submitters}
+    selected_book:
+      submitted_by: Proposé par %{submitters}
+      selected_book: Livre de la session
+      review: Evaluer le livre
+    top_cards:
+      participants: Participants
+      starts_in: Début de la session

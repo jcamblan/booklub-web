@@ -8,7 +8,13 @@
     data-action="invalid->googleBookSearch#hideValidationMessage:capture input->googleBookSearch#submit"
     >
     <label for="search_query" class="block text-sm font-medium text-gray-700 dark:text-zinc-200"><%= t('.search-book-author')%></label>
-    <input id="search_query" name="query" type="search" pattern=".*\w+.*" required autocomplete="off" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:text-black">
+    <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:text-black"
+           id="search_query" 
+           name="query" 
+           type="search"
+           pattern=".*\w+.*"
+           required
+           autocomplete="off">
 
     <button data-googleBookSearch-target="submit">
       Search
@@ -33,6 +39,7 @@
 
     <%= form.fields_for :book_attributes do |book_field| %>
       <%= book_field.hidden_field :google_book_id, id: "inputBookGoogleId" %>
+      <%= book_field.hidden_field :title, id: "inputBookTitle" %>
     <% end %>
 
     <button data-submission-target="submit">
