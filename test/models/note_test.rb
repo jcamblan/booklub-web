@@ -22,7 +22,8 @@ end
 #
 # Indexes
 #
-#  index_notes_on_book_id          (book_id)
-#  index_notes_on_read_session_id  (read_session_id)
-#  index_notes_on_user_id          (user_id)
+#  index_notes_on_book_id                                  (book_id)
+#  index_notes_on_book_id_and_read_session_id_and_user_id  (book_id,read_session_id,user_id) UNIQUE
+#  index_notes_on_read_session_id                          (read_session_id)
+#  index_notes_on_user_id                                  (user_id)
 #

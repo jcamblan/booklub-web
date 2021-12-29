@@ -9,6 +9,7 @@ class Book < ApplicationRecord
   has_many :submissions, dependent: :nullify
   has_many :author_books, dependent: :destroy
   has_many :authors, through: :author_books
+  has_many :notes
 
   has_one_attached :cover do |attachable|
     attachable.variant :thumb, resize_to_fill: [300, 450]
@@ -45,10 +46,10 @@ end
 # Table name: books
 #
 #  id               :uuid             not null, primary key
-#  average_note     :float
-#  note_count       :integer
-#  selection_count  :integer
-#  submission_count :integer
+#  average_note     :float            default("0.0"), not null
+#  note_count       :integer          default("0"), not null
+#  selection_count  :integer          default("0"), not null
+#  submission_count :integer          default("0"), not null
 #  title            :string
 #  google_book_id   :string
 #  created_at       :datetime         not null

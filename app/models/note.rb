@@ -20,16 +20,16 @@ class Note < ApplicationRecord
   # == Scopes ==================================================================
   # == Callbacks ===============================================================
 
-  # counter_culture :book, column_name: 'note_count'
+  counter_culture :book, column_name: 'note_count'
 
-  # after_commit :update_book_average_note
+  after_commit :update_book_average_note
 
   # == Class Methods ===========================================================
   # == Instance Methods ========================================================
 
-  # def update_book_average_note
-  #   book.update(average_note: book.notes.average(:value))
-  # end
+  def update_book_average_note
+    book.update(average_note: book.notes.average(:value))
+  end
 end
 
 # == Schema Information
@@ -46,7 +46,8 @@ end
 #
 # Indexes
 #
-#  index_notes_on_book_id          (book_id)
-#  index_notes_on_read_session_id  (read_session_id)
-#  index_notes_on_user_id          (user_id)
+#  index_notes_on_book_id                                  (book_id)
+#  index_notes_on_book_id_and_read_session_id_and_user_id  (book_id,read_session_id,user_id) UNIQUE
+#  index_notes_on_read_session_id                          (read_session_id)
+#  index_notes_on_user_id                                  (user_id)
 #

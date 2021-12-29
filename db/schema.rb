@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 2021_12_29_131005) do
   end
 
   create_table "books", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.float "average_note"
-    t.integer "note_count"
-    t.integer "selection_count"
-    t.integer "submission_count"
+    t.float "average_note", default: 0.0, null: false
+    t.integer "note_count", default: 0, null: false
+    t.integer "selection_count", default: 0, null: false
+    t.integer "submission_count", default: 0, null: false
     t.string "title"
     t.string "google_book_id"
     t.datetime "created_at", precision: 6, null: false
@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 2021_12_29_131005) do
   create_table "club_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.uuid "club_id", null: false
+    t.integer "session_count", default: 0, null: false
+    t.integer "selection_count", default: 0, null: false
+    t.integer "bonus_score", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_club_users_on_club_id"
@@ -96,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_131005) do
     t.integer "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id", "read_session_id", "user_id"], name: "index_notes_on_book_id_and_read_session_id_and_user_id", unique: true
     t.index ["book_id"], name: "index_notes_on_book_id"
     t.index ["read_session_id"], name: "index_notes_on_read_session_id"
     t.index ["user_id"], name: "index_notes_on_user_id"

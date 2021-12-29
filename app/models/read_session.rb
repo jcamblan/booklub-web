@@ -49,7 +49,7 @@ class ReadSession < ApplicationRecord
         if submissions.count.zero?
           destroy!
         else
-          SessionDrawJob.perform_later(self)
+          SessionDrawJob.perform_later(id)
         end
       end
 

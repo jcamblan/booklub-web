@@ -10,5 +10,7 @@ class CreateNotes < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :notes, %w[book_id read_session_id user_id], unique: true
   end
 end

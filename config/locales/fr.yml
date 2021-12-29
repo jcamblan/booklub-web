@@ -17,6 +17,8 @@ fr:
       read_sessions: sessions
     show:
       leave: Quitter le club
+    read_sessions:
+      create: Démarrer une session
   components:
     form:
       password_input:
@@ -71,3 +73,20 @@ fr:
     top_cards:
       participants: Participants
       starts_in: Début de la session
+    form:
+      session_name: Nom
+      submission_due_date: Date limite d'inscription
+      read_due_date: Date limite de lecture
+      next_session_name: 'Session #%{number}'
+      create: Démarrer la session
+    new:
+      new_session: Nouvelle session
+      back_to_club: Retour
+  submissions:
+    head:
+      new_submission: Proposer un livre
+    form:
+      search-book-author: Titre, auteur...
+  google_books:
+    index:
+      submit-book: Proposer ce livre

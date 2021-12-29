@@ -3,5 +3,7 @@
 <% end %>
 
 <% if club.read_sessions.active.empty? %>
-  <%= render(ButtonComponent.new) { link_to t('.create'), new_club_read_session_path(club) } %>
+  <div class="mt-5 flex">
+    <%= render(ButtonComponent.new) { link_to t('.create'), new_club_read_session_path(club) } %>
+  </div>
 <% end %>

@@ -27,7 +27,7 @@ module BooklubWeb
       # Ignore jsons
       g.jbuilder = false
     end
-
+    config.time_zone = 'Paris'
     config.i18n.default_locale = 'fr'
   end
 end

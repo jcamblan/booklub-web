@@ -169,7 +169,7 @@ read_session.submissions.find_each do |submission|
               .find_or_create_by(user: submission.user, book: read_session.selected_book)
 end
 
-# ClubUser.find_each(&:refresh_stats)
+ClubUser.find_each(&:refresh_stats)
 
 read_session = club.read_sessions.create_with(
   submission_due_date: Time.zone.now + 1.week,
