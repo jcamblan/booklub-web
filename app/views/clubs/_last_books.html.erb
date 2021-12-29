@@ -1,8 +1,20 @@
-<h2><%= t('.last_books') %></h2>
-<p>BOOK LIST PLACEHOLDER</p>
+<h2 class="mb-5 text-lg font-semibold"><%= t('.last_books') %></h2>
 
-<ul>
-  <% club.read_sessions.each do |read_session| %>
-    <li><%= link_to read_session.name, read_session %></li>
-  <% end %>
-</ul>
+<div data-controller="carousel" class="swiper-container">
+  <div class="swiper-wrapper">
+    <% club.read_sessions.preload(:selected_book).each do |read_session| %>
+      <% selected_book = read_session.selected_book %>
+      <div class="swiper-slide">
+        <div class="rounded-lg">
+          <%= link_to read_session do %>
+            <% if selected_book.cover.present?%>
+              <%= image_tag selected_book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
+            <% end %>
+          <% end %>
+        </div>
+        <h3><%= selected_book.title %></h3>
+        <p><%= t('.submitted_by', submitters: book_submitters(selected_book, read_session)) %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -16,6 +16,7 @@ fr:
       back_to_clubs: Retour
     last_books:
       last_books: Dernières lectures
+      submitted_by: par %{submitters}
     members:
       members: Membres du club
       read_sessions: sessions
