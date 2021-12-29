@@ -19,6 +19,12 @@ class User < ApplicationRecord
   # == Callbacks ===============================================================
   # == Class Methods ===========================================================
   # == Instance Methods ========================================================
+
+  def gravatar_url
+    hashed_email = Digest::MD5.hexdigest(email)
+
+    "https://www.gravatar.com/avatar/#{hashed_email}"
+  end
 end
 
 # == Schema Information

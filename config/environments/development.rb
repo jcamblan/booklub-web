@@ -72,6 +72,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
+  config.hosts << 'ada83fde117d.eu.ngrok.io'
+
   config.active_job.queue_adapter = :sidekiq
   config.assets.prefix = '/assets_dev'
   config.serve_static_assets = false

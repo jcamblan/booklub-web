@@ -1,7 +1,23 @@
-<h2><%= t('.members') %></h2>
+<h2 class="mb-5 text-lg font-semibold"><%= t('.members') %></h2>
 
-<% club.users.each do |member| %>
-  <p>
-    - <%= member.username%> (<%= club_sessions_count(club, current_user) %> <%= t('.read_sessions') %>)
-  </p>
-<% end %>
+<div class="flex flex-col">
+  <% club.users.each do |member| %>
+    <div class="flex flex-row justify-between">
+      <div class="flex flex-row space-x-3">
+        <div class="rounded-full border-grey-400 border-2 w-fit h-fit">
+          <%= image_tag member.gravatar_url, class: "rounded-full h-14" %>
+        </div>
+        <div class="flex flex-col justify-center">
+          <span class="text-base font-medium"><%= member.username%></span>
+          <span class="text-sm text-gray-400"><%= club_sessions_count(club, current_user) %> <%= t('.read_sessions') %></span>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="fa fa-angle-right text-2xl text-slate-400"></i>
+      </div>
+    </div>
+    <% if member != club.users.last %>
+      <hr class="my-2 border-slate-100">
+    <%end%>
+  <% end %>
+</div>
