@@ -16,7 +16,7 @@
           </div>
         <% end %>
       </div>
-      <div class="space-y-2 mb-5 flex-col">
+      <div class="space-y-2 mb-5 flex-col flex">
         <%= render(ButtonComponent.new) { link_to t('.join_club'), sign_in_path } %>
         <%= render(ButtonComponent.new(variant: 2)) { link_to t('.create_club'), new_club_path } %>
       </div>

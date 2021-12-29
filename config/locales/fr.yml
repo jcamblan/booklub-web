@@ -10,15 +10,19 @@ fr:
   clubs:
     form:
       create_club: Créer mon club
+      name: Nom
+    new: 
+      new_club: Nouveau club
+      back_to_clubs: Retour
     last_books:
       last_books: Dernières lectures
     members:
       members: Membres du club
       read_sessions: sessions
-    show:
-      leave: Quitter le club
     read_sessions:
       create: Démarrer une session
+    show:
+      leave: Quitter le club
   components:
     form:
       password_input:
@@ -26,6 +30,9 @@ fr:
       text_input:
         club_name: Nom du club
         email: Email
+  google_books:
+    index:
+      submit-book: Proposer ce livre
   home:
     index:
       create_club: Créer un club
@@ -47,12 +54,39 @@ fr:
     new:
       reset_password: Réinitialiser mon mot de passe
       sign_in: Se connecter
+  read_sessions:
+    form:
+      create: Démarrer la session
+      next_session_name: 'Session #%{number}'
+      read_due_date: Date limite de lecture
+      session_name: Nom
+      submission_due_date: Date limite d'inscription
+    new:
+      back_to_club: Retour
+      new_session: Nouvelle session
+    proposals:
+      book_proposals: Propositions de livres
+      submitted_by: par %{submitters}
+    selected_book:
+      review: Evaluer le livre
+      selected_book: Livre de la session
+      submitted_by: Proposé par %{submitters}
+    show:
+      submit-book: Proposer un livre
+    top_cards:
+      participants: Participants
+      starts_in: Début de la session
   sessions:
     form:
       email: Email
       forgot_password: Mot de passe oublié
       sign_in: Se connecter
       sign_up: Créer un compte
+  submissions:
+    form:
+      search-book-author: Titre, auteur...
+    head:
+      new_submission: Proposer un livre
   time:
     formats:
       long: toto
@@ -60,33 +94,3 @@ fr:
     new:
       sign_in: Se connecter
       sign_up: Créer un compte
-  read_sessions:
-    show:
-      submit-book: Proposer un livre
-    proposals:
-      book_proposals: Propositions de livres
-      submitted_by: par %{submitters}
-    selected_book:
-      submitted_by: Proposé par %{submitters}
-      selected_book: Livre de la session
-      review: Evaluer le livre
-    top_cards:
-      participants: Participants
-      starts_in: Début de la session
-    form:
-      session_name: Nom
-      submission_due_date: Date limite d'inscription
-      read_due_date: Date limite de lecture
-      next_session_name: 'Session #%{number}'
-      create: Démarrer la session
-    new:
-      new_session: Nouvelle session
-      back_to_club: Retour
-  submissions:
-    head:
-      new_submission: Proposer un livre
-    form:
-      search-book-author: Titre, auteur...
-  google_books:
-    index:
-      submit-book: Proposer ce livre
