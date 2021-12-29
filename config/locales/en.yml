@@ -69,3 +69,6 @@ en:
     new:
       sign_in: Se connecter
       sign_up: Créer un compte
+  google_books:
+    index:
+      submit-book: Submit book

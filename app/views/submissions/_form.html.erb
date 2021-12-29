@@ -1,21 +1,42 @@
-<%= form_for :submission, url: read_session_submissions_path do |form| %>
-  <% if @submission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+<div data-controller="submission">
 
-      <ul>
-        <% @submission.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <form
+    action="<%= google_books_path(turbo_frame: "search_results") %>"
+    data-turbo-frame="search_results"
+    class="peer"
+    data-controller="googleBookSearch"
+    data-action="invalid->googleBookSearch#hideValidationMessage:capture input->googleBookSearch#submit"
+    >
+    <label for="search_query" class="block text-sm font-medium text-gray-700 dark:text-zinc-200"><%= t('.search-book-author')%></label>
+    <input id="search_query" name="query" type="search" pattern=".*\w+.*" required autocomplete="off" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:text-black">
+
+    <button data-googleBookSearch-target="submit">
+      Search
+    </button>
+  </form>
+
+  <turbo-frame id="search_results" class="empty:hidden peer-invalid:hidden"></turbo-frame>
+
+  <%= form_for :submission, url: read_session_submissions_path do |form| %>
+
+    <% if @submission.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+        <ul>
+          <% @submission.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.fields_for :book_attributes do |book_field| %>
+      <%= book_field.hidden_field :google_book_id, id: "inputBookGoogleId" %>
+    <% end %>
+
+    <button data-submission-target="submit">
+      Search
+    </button>
   <% end %>
-
-  <%= form.fields_for :book_attributes do |book_field| %>
-    <%= render '/components/form/text_input', name: :title, form: book_field, label: t('.title')  %>
-    <%= render '/components/form/text_input', name: :authors, form: book_field, label: t('.authors')  %>
-    <%= render '/components/form/text_input', name: :google_book_id, form: book_field, label: t('.google_book_id')  %>
-  <% end %>
-
-  <%= render partial: '/components/form/submit', locals: { form: form, text: t(".join")} %>
-<% end %>
+</div>

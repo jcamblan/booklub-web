@@ -1,0 +1,22 @@
+<turbo-frame id="<%= params.fetch(:turbo_frame, "search_results") %>">
+  <div class="flex flex-col space-y-8">
+    <% @google_books.each do |book| %>
+      <hr class="">
+
+      <div class="flex flex-row space-x-2">
+        <div class="rounded-lg">
+          <% if book.dig(:volumeInfo, :imageLinks, :smallThumbnail).present? %>
+            <%= image_tag book.dig(:volumeInfo, :imageLinks, :smallThumbnail), class: "rounded-lg min-w-full" %>
+          <% end %>
+        </div>
+        <div class="">
+          <h2><%= book.dig(:volumeInfo, :title) %></h2>
+          <p><%= book.dig(:volumeInfo, :authors).join(', ') %></p>
+          <button data-action="click->submission#add" bookGoogleId="<%= book[:id] %>" class="inline-flex items-center flex-grow justify-center px-5 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700">
+            <%= t('.submit-book') %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</turbo-frame>

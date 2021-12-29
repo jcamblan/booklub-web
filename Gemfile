@@ -16,6 +16,7 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0' # Use the Puma web server [https://github.com/puma/puma]
 gem 'rails', '~> 7.0.0' # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'redis', '~> 4.0' # Use Redis adapter to run Action Cable in production
+gem 'rest-client'
 gem 'rubocop', '~> 1.23'
 gem 'rubocop-performance', '~> 1.12'
 gem 'rubocop-rails', '~> 2.12'
