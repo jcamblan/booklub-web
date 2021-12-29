@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-Fabricator(:user) do
-  email { Faker::Internet.email }
-  password { 'password' }
-  username { Faker::Name.name }
+Fabricator(:book) do
+  title { Faker::Book.title }
 end
 
 # == Schema Information

@@ -6,15 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= hotwire_livereload_tags %>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://kit.fontawesome.com/b51fb088be.js" crossorigin="anonymous"></script>
   </head>
 
   <body class="dark:bg-black dark:text-white">
-    <main class="container mx-auto mt-5 px-5 flex">
+    <main class="container mx-auto mt-5 px-5 flex overflow-x-hidden" style="overflow-x:hidden !important;">
       <%= yield %>
     </main>
   </body>
