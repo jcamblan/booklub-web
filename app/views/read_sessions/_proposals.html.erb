@@ -1,20 +1,17 @@
-<% books = @read_session.submitted_books %>
-<% if books.any? %>
+<h2 class="mb-5 text-lg font-semibold"><%= t('.book_proposals') %></h2>
 
-  <h2 class="mb-5 text-lg font-semibold"><%= t('.book_proposals') %></h2>
-
-  <div data-controller="carousel" class="swiper-container">
-    <div class="swiper-wrapper">
-      <% books.each do |book| %>
-        <div  class="swiper-slide">
-          <div class="rounded-lg">
-            <%= image_tag '/placeholder.jpeg', class: "rounded-lg max-h-56" %>
-          </div>
-          <h3><%= book.title %></h3>
-          <p><%= t('.submitted_by', submitters: book_submitters(book, @read_session)) %></p>
+<div data-controller="carousel" class="swiper-container">
+  <div class="swiper-wrapper">
+    <% books.each do |book| %>
+      <div  class="swiper-slide">
+        <div class="rounded-lg">
+          <% if book.cover.present?%>
+            <%= image_tag rails_storage_proxy_path(book.cover), class: "rounded-lg max-h-56" %>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+        <h3><%= book.title %></h3>
+        <p><%= t('.submitted_by', submitters: book_submitters(book, @read_session)) %></p>
+      </div>
+    <% end %>
   </div>
-
-<% end %>
+</div>

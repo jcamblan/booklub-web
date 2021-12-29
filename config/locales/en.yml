@@ -49,7 +49,9 @@ en:
     new:
       back_to_club: Back to club
       new_session: Start new session
-    show:
+    proposals:
+      submitted_by: By %{submitters}
+    selected_book:
       submitted_by: By %{submitters}
   sessions:
     form:

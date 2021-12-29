@@ -1,3 +1,6 @@
+<% selected_book = @read_session.selected_book %>
+<% submitted_books = @read_session.submitted_books %>
+
 <div class="self-center justify-self-center flex-col flex mx-auto w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
@@ -7,9 +10,13 @@
 
   <%= render 'top_cards', read_session: @read_session  %>
 
-  <hr class="my-5">
+  <% if selected_book.present? %>
+    <%= render 'selected_book', book: selected_book  %>
+  <% end %>
 
-  <%= render 'proposals', read_session: @read_session  %>
+  <% if submitted_books.any? %>
+    <%= render 'proposals', books: submitted_books  %>
+  <% end %>
 
   <% if @read_session.state_precedes?(:reading) %>
     <%= render(ButtonComponent.new) { link_to t('.submit-book'), read_session_join_path(@read_session) } %>

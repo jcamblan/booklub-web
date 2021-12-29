@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_26_104002) do
+ActiveRecord::Schema.define(version: 2021_12_29_131005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.uuid "record_id", null: false
+    t.uuid "blob_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: 6, null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "author_books", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "author_id", null: false
@@ -61,6 +89,18 @@ ActiveRecord::Schema.define(version: 2021_12_26_104002) do
     t.index ["owner_id"], name: "index_clubs_on_owner_id"
   end
 
+  create_table "notes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "book_id", null: false
+    t.uuid "user_id", null: false
+    t.uuid "read_session_id", null: false
+    t.integer "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_notes_on_book_id"
+    t.index ["read_session_id"], name: "index_notes_on_read_session_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
   create_table "read_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.datetime "next_step_date", precision: 6
@@ -99,11 +139,16 @@ ActiveRecord::Schema.define(version: 2021_12_26_104002) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
   add_foreign_key "club_users", "clubs"
   add_foreign_key "club_users", "users"
   add_foreign_key "clubs", "users", column: "owner_id"
+  add_foreign_key "notes", "books"
+  add_foreign_key "notes", "read_sessions"
+  add_foreign_key "notes", "users"
   add_foreign_key "read_sessions", "books", column: "selected_book_id"
   add_foreign_key "read_sessions", "clubs"
   add_foreign_key "submissions", "books"

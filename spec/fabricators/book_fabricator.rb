@@ -6,20 +6,15 @@ end
 
 # == Schema Information
 #
-# Table name: users
+# Table name: books
 #
-#  id                 :uuid             not null, primary key
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  email              :string           not null
-#  encrypted_password :string(128)      not null
-#  confirmation_token :string(128)
-#  remember_token     :string(128)      not null
-#  username           :string
-#
-# Indexes
-#
-#  index_users_on_email           (email)
-#  index_users_on_remember_token  (remember_token)
-#  index_users_on_username        (username) UNIQUE
+#  id               :uuid             not null, primary key
+#  average_note     :float
+#  note_count       :integer
+#  selection_count  :integer
+#  submission_count :integer
+#  title            :string
+#  google_book_id   :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #

@@ -4,6 +4,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   # get 'home/index'rails
   resources :passwords, controller: 'clearance/passwords', only: %i[create new]
   resource :session, controller: 'clearance/sessions', only: [:create]

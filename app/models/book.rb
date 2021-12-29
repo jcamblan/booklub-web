@@ -10,6 +10,8 @@ class Book < ApplicationRecord
   has_many :author_books, dependent: :destroy
   has_many :authors, through: :author_books
 
+  has_one_attached :cover
+
   # == Validations =============================================================
 
   validates :title, presence: true
@@ -25,8 +27,15 @@ class Book < ApplicationRecord
                  }
 
   # == Callbacks ===============================================================
+
+  after_create :fetch_google_attributes
+
   # == Class Methods ===========================================================
   # == Instance Methods ========================================================
+
+  def fetch_google_attributes
+    FetchGoogleBookAttributesJob.perform_later(id)
+  end
 end
 
 # == Schema Information
