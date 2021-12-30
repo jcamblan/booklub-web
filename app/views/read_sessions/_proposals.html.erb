@@ -9,8 +9,8 @@
             <%= image_tag book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
           <% end %>
         </div>
-        <h3><%= book.title %></h3>
-        <p><%= t('.submitted_by', submitters: book_submitters(book, @read_session)) %></p>
+        <h3 class="font-semibold"><%= book.title %></h3>
+        <p class="text-slate-500"><%= t('.submitted_by', submitters: book_submitters(book, @read_session)) %></p>
       </div>
     <% end %>
   </div>

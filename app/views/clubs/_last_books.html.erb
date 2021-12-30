@@ -5,15 +5,15 @@
     <% club.read_sessions.concluded.preload(:selected_book).each do |read_session| %>
       <% selected_book = read_session.selected_book %>
       <div class="swiper-slide">
-        <div class="rounded-lg">
+        <div class="rounded-lg mb-3">
           <%= link_to read_session do %>
             <% if selected_book.cover.present?%>
               <%= image_tag selected_book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
             <% end %>
           <% end %>
         </div>
-        <h3><%= selected_book.title %></h3>
-        <p><%= t('.submitted_by', submitters: book_submitters(selected_book, read_session)) %></p>
+        <h3 class="font-semibold"><%= selected_book.title %></h3>
+        <p class="text-slate-500"><%= t('.submitted_by', submitters: book_submitters(selected_book, read_session)) %></p>
       </div>
     <% end %>
   </div>

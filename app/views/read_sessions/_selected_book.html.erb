@@ -1,12 +1,12 @@
 <h2 class="mb-5 text-lg font-semibold"><%= t('.selected_book') %></h2>
 
-<div class="flex flex-row space-x-3">
+<div class="flex flex-row space-x-5">
   <div class="rounded-lg">
     <%= image_tag book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
   </div>
-  <div class="flex-col">
-    <h3><%= book.title %></h3>
-    <p><%= t('.submitted_by', submitters: book_submitters(book, @read_session)) %></p>
+  <div class="flex-col flex justify-center">
+    <h3 class="font-medium text-xl"><%= book.title %></h3>
+    <p class="text-slate-600 font-light"><%= book.authors.pluck(:name).join(', ') %></p>
   </div>
 </div>
 
