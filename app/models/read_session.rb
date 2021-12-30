@@ -28,6 +28,7 @@ class ReadSession < ApplicationRecord
 
   scope :unarchived, -> { where.not(state: :archived) }
   scope :active, -> { where(state: %i[submission draw reading]) }
+  scope :concluded, -> { active.invert_where }
 
   # == Callbacks ===============================================================
 
