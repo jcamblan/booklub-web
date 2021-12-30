@@ -1,0 +1,7 @@
+<div class="flex flex-row mt-1">
+  <%= render(StarComponent.new(fill: @note >= 2)) %>
+  <%= render(StarComponent.new(fill: @note >= 4)) %>
+  <%= render(StarComponent.new(fill: @note >= 6)) %>
+  <%= render(StarComponent.new(fill: @note >= 8)) %>
+  <%= render(StarComponent.new(fill: @note == 10)) %>
+</div>
