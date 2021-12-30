@@ -30,7 +30,7 @@ class ClubUser < ApplicationRecord
 
     submissions.where_assoc_exists(:read_session, state: %w[reading conclusion archived])
                .order(created_at: :asc).each do |submission|
-      score += 1
+      score += submission.read_session.submissions.count
       next unless submission.book_id == submission.read_session.selected_book_id
 
       score = 0
