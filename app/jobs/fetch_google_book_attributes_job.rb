@@ -19,6 +19,7 @@ class FetchGoogleBookAttributesJob < ApplicationJob
                  Author.find_or_initialize_by(name: name)
                end
     )
+    return if json.dig(:volumeInfo, :imageLinks).nil?
 
     prio = %i[large extraLarge medium small thumbnail smallThumbnail]
     file_url = json.dig(:volumeInfo, :imageLinks)

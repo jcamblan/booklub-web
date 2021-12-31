@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_131005) do
     t.datetime "submission_due_date", precision: 6
     t.uuid "club_id", null: false
     t.uuid "selected_book_id"
+    t.boolean "ignore_bonus_score", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_read_sessions_on_club_id"

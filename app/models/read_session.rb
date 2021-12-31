@@ -129,6 +129,7 @@ end
 #  submission_due_date :datetime
 #  club_id             :uuid             not null
 #  selected_book_id    :uuid
+#  ignore_bonus_score  :boolean          default("false")
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #

@@ -70,6 +70,66 @@
     title: 'Les androïdes rêvent-ils de moutons électriques ?',
     authors: [Author.find_or_create_by(name: 'Philip K. Dick')],
     google_book_id: 'YC4tDwAAQBAJ'
+  },
+  {
+    title: 'Ils étaient Dix',
+    authors: [Author.find_or_create_by(name: 'Agatha Christie')],
+    google_book_id: 'TS3j8ZTpaG0C'
+  },
+  {
+    title: "Le crépuscule et l'aube",
+    authors: [Author.find_or_create_by(name: 'Ken Follet')],
+    google_book_id: 'A9zODwAAQBAJ'
+  },
+  {
+    title: 'Ravage',
+    authors: [Author.find_or_create_by(name: 'René Barjavel')],
+    google_book_id: 'rCgWQgAACAAJ'
+  },
+  {
+    title: '2084 : La fin du monde',
+    authors: [Author.find_or_create_by(name: 'Boualem Sansal')],
+    google_book_id: 'KNgwDgAAQBAJ'
+  },
+  {
+    title: 'Martin Eden',
+    authors: [Author.find_or_create_by(name: 'Jack London')],
+    google_book_id: 'MzvnDwAAQBAJ'
+  },
+  {
+    title: 'Marie-Antoinette',
+    authors: [Author.find_or_create_by(name: 'Stefan Zweig')],
+    google_book_id: 'eEFCAQAACAAJ'
+  },
+  {
+    title: "La promesse de l'aube",
+    authors: [Author.find_or_create_by(name: 'Romain Gary')],
+    google_book_id: 'QiHQMXVUcFoC'
+  },
+  {
+    title: "L'art subtil de s'en foutre: Un guide à contre-courant pour être soi-même",
+    authors: [Author.find_or_create_by(name: 'Mark Manson')],
+    google_book_id: 'ag4oDwAAQBAJ'
+  },
+  {
+    title: 'Palimpseste',
+    authors: [Author.find_or_create_by(name: 'Charles Stross')],
+    google_book_id: 'BL4njwEACAAJ'
+  },
+  {
+    title: "Ne tirez pas sur l'oiseau moqueur",
+    authors: [Author.find_or_create_by(name: 'Harper Lee')],
+    google_book_id: '-n4gCgAAQBAJ'
+  },
+  {
+    title: 'Survivant des glaces',
+    authors: [Author.find_or_create_by(name: 'Mike Horn')],
+    google_book_id: 'PwlBEAAAQBAJ'
+  },
+  {
+    title: 'Dark Matter',
+    authors: [Author.find_or_create_by(name: 'Blake Crouch')],
+    google_book_id: 'hsyeDQAAQBAJ'
   }
 ].each do |book_attributes|
   Book.create!(book_attributes)
@@ -85,9 +145,15 @@ henri = User.create_with(username: 'Henri', password: 'password')
             .find_or_create_by(email: 'henri@booklub.app')
 mbela = User.create_with(username: 'Mbela', password: 'password')
             .find_or_create_by(email: 'mbela@booklub.app')
+sonia = User.create_with(username: 'Sonia', password: 'password')
+            .find_or_create_by(email: 'sonia@booklub.app')
+esther = User.create_with(username: 'Esther', password: 'password')
+             .find_or_create_by(email: 'esther@booklub.app')
+christian = User.create_with(username: 'Christian', password: 'password')
+                .find_or_create_by(email: 'christian@booklub.app')
 
 club = Club.find_or_create_by(name: 'Tymate', owner: cynthia)
-club.users = [julien, cynthia, maxime, henri, mbela]
+club.users = [julien, cynthia, maxime, henri, mbela, sonia, esther]
 
 read_session = club.read_sessions.create_with(
   submission_due_date: 6.months.ago,
@@ -169,8 +235,6 @@ read_session.submissions.find_each do |submission|
               .find_or_create_by(user: submission.user, book: read_session.selected_book)
 end
 
-ClubUser.find_each(&:refresh_stats)
-
 read_session = club.read_sessions.create_with(
   submission_due_date: Time.zone.now + 1.week,
   read_due_date: Time.zone.now + 1.month
@@ -192,4 +256,98 @@ read_session.submissions
             .create_with(book: Book.find_or_create_by(title: 'La Ferme des animaux'))
             .find_or_create_by(user: mbela)
 read_session.update(selected_book: Book.find_by(title: 'Les androïdes rêvent-ils de moutons électriques ?'),
+                    state: 'archived')
+
+read_session = club.read_sessions.create_with(
+  submission_due_date: Time.zone.now + 1.week,
+  read_due_date: Time.zone.now + 1.month,
+  ignore_bonus_score: true
+).find_or_create_by(name: 'Session #5')
+
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .find_or_create_by(user: julien)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .find_or_create_by(user: cynthia)
+read_session.submissions
+            .create_with(book: Book.find_by(title: 'Ils étaient Dix'))
+            .find_or_create_by(user: maxime)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .find_or_create_by(user: henri)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .find_or_create_by(user: mbela)
+read_session.update(selected_book: Book.find_by(title: 'Ils étaient Dix'),
+                    state: 'archived')
+
+read_session = club.read_sessions.create_with(
+  submission_due_date: '2020-11-12 21:30:00',
+  read_due_date: '2020-12-11 21:30:00'
+).find_or_create_by(name: 'Session #6')
+
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'La chute des géants'))
+            .find_or_create_by(user: julien)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'La chute des géants'))
+            .find_or_create_by(user: cynthia)
+read_session.submissions
+            .create_with(book: Book.find_by(title: 'Martin Eden'))
+            .find_or_create_by(user: maxime)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: "Le crépuscule et l'aube"))
+            .find_or_create_by(user: henri)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Ravage'))
+            .find_or_create_by(user: mbela)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: '2084 : La fin du monde'))
+            .find_or_create_by(user: sonia)
+read_session.update(selected_book: Book.find_by(title: "Le crépuscule et l'aube"),
+                    state: 'archived')
+
+read_session = club.read_sessions.create_with(
+  submission_due_date: '2021-08-05 21:30:00',
+  read_due_date: '2021-08-11 21:30:00'
+).find_or_create_by(name: 'Session #7')
+
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: "La promesse de l'aube"))
+            .find_or_create_by(user: esther)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Marie-Antoinette'))
+            .find_or_create_by(user: cynthia)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(
+              title: "L'art subtil de s'en foutre: Un guide à contre-courant pour être soi-même"
+            ))
+            .find_or_create_by(user: henri)
+read_session.update(selected_book: Book.find_by(title: "La promesse de l'aube"),
+                    state: 'archived')
+
+read_session = club.read_sessions.create_with(
+  submission_due_date: '2021-12-10 21:30:00',
+  read_due_date: '2022-01-15 21:30:00'
+).find_or_create_by(name: 'Session #8')
+
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: "Ne tirez pas sur l'oiseau moqueur"))
+            .find_or_create_by(user: esther)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: "Ne tirez pas sur l'oiseau moqueur"))
+            .find_or_create_by(user: cynthia)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Dark Matter'))
+            .find_or_create_by(user: henri)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Palimpseste'))
+            .find_or_create_by(user: julien)
+read_session.submissions
+            .create_with(book: Book.find_or_create_by(title: 'Survivant des glaces'))
+            .find_or_create_by(user: christian)
+read_session.update(selected_book: Book.find_by(title: "Ne tirez pas sur l'oiseau moqueur"),
                     state: 'reading')
+
+ClubUser.find_each(&:refresh_stats)

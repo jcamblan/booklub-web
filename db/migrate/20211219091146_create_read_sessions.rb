@@ -10,6 +10,7 @@ class CreateReadSessions < ActiveRecord::Migration[7.0]
       t.datetime :submission_due_date
       t.belongs_to :club, null: false, foreign_key: true, type: :uuid
       t.belongs_to :selected_book, null: true, type: :uuid, foreign_key: { to_table: :books }
+      t.boolean :ignore_bonus_score, default: false
 
       t.timestamps
     end

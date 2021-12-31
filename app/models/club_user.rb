@@ -28,7 +28,9 @@ class ClubUser < ApplicationRecord
   def calculate_score
     score = 0
 
-    submissions.where_assoc_exists(:read_session, state: %w[reading conclusion archived])
+    submissions.where_assoc_exists(:read_session,
+                                   state: %w[reading conclusion archived],
+                                   ignore_bonus_score: false)
                .order(created_at: :asc).each do |submission|
       score += submission.read_session.submissions.count
       next unless submission.book_id == submission.read_session.selected_book_id
