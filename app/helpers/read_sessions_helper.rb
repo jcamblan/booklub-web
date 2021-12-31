@@ -12,4 +12,14 @@ module ReadSessionsHelper
       .pluck(:username)
       .join(', ')
   end
+
+  def prefixed_time(time)
+    prefix = if time.past?
+               t('time.prefixes.past')
+             else
+               t('time.prefixes.future')
+             end
+
+    "#{prefix} #{time_ago_in_words(time)}"
+  end
 end

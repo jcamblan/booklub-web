@@ -8,7 +8,7 @@
         <%= t('.starts_in') %>
       </p>
       <p class="text-normal font-bold">
-        <%= time_tag read_session.submission_due_date, 'data-local': 'time-ago' %>
+        <%= prefixed_time(read_session.next_step_date) %>
       </p>
     </div>
   </div>

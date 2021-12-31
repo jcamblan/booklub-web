@@ -89,8 +89,9 @@ fr:
     head:
       new_submission: Proposer un livre
   time:
-    formats:
-      long: toto
+    prefixes:
+      past: Il y a
+      future: Dans
   users:
     new:
       sign_in: Se connecter

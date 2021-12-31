@@ -6,7 +6,7 @@
         <i class="fas fa-clock text-indigo-500"></i>
         <span>
           <%= t('.starts') %>
-          <%= time_tag session.submission_due_date, 'data-local': 'time-ago' %>
+          <%= prefixed_time(read_session.next_step_date) %>
         </span>
       <% else %>
         <span>
