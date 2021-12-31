@@ -9,5 +9,7 @@ class CreateSubmissions < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :submissions, %w[user_id read_session_id], unique: true
   end
 end

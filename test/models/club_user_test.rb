@@ -23,6 +23,7 @@ end
 #
 # Indexes
 #
-#  index_club_users_on_club_id  (club_id)
-#  index_club_users_on_user_id  (user_id)
+#  index_club_users_on_club_id              (club_id)
+#  index_club_users_on_user_id              (user_id)
+#  index_club_users_on_user_id_and_club_id  (user_id,club_id) UNIQUE
 #

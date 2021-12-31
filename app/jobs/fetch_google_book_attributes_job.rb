@@ -6,31 +6,40 @@ class FetchGoogleBookAttributesJob < ApplicationJob
   queue_as :default
 
   def perform(book_id)
-    book = Book.find(book_id)
+    @book = Book.find(book_id)
 
-    base_uri = 'https://www.googleapis.com/books/v1/volumes/'
+    authors = (json.dig(:volumeInfo, :authors) || []).map do |name|
+      Author.find_or_initialize_by(name: name)
+    end
+    @book.update!(title: json.dig(:volumeInfo, :title),
+                  authors: authors)
 
-    result = RestClient.get(base_uri + book.google_book_id)
-    json = JSON.parse(result.body).deep_symbolize_keys
+    attach_cover if cover?
+  end
 
-    book.update!(
-      title: json.dig(:volumeInfo, :title),
-      authors: (json.dig(:volumeInfo, :authors) || []).map do |name|
-                 Author.find_or_initialize_by(name: name)
-               end
-    )
-    return if json.dig(:volumeInfo, :imageLinks).nil?
+  private
 
-    prio = %i[large extraLarge medium small thumbnail smallThumbnail]
+  def attach_cover
     file_url = json.dig(:volumeInfo, :imageLinks)
-                   .sort_by { |k, _v| prio.index(k) }
+                   .sort_by { |k, _v| cover_priority.index(k) }
                    &.first&.last
     return unless file_url
 
     file = URI.parse(file_url).open
 
-    book.cover.attach(io: file, filename: 'cover')
+    @book.cover.attach(io: file, filename: 'cover')
+    @book.save!
+  end
 
-    book.save!
+  def json
+    @json ||= GoogleBooksApiClient.new.volume(@book.google_book_id)
+  end
+
+  def cover?
+    json.dig(:volumeInfo, :imageLinks).present?
+  end
+
+  def cover_priority
+    %i[large extraLarge medium small thumbnail smallThumbnail]
   end
 end

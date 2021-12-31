@@ -11,5 +11,7 @@ class CreateClubUsers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :club_users, %w[user_id club_id], unique: true
   end
 end

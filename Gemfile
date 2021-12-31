@@ -9,6 +9,7 @@ gem 'aasm' # https://github.com/aasm/aasm
 gem 'activerecord_where_assoc', '~> 1.1'
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'clearance', '~> 2.5'
+gem 'counter_culture', '~> 3.1'
 gem 'fabrication'
 gem 'faker'
 gem 'image_processing', '~> 1.12'
@@ -62,5 +63,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem "counter_culture", "~> 3.1"

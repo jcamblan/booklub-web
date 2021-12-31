@@ -21,7 +21,8 @@ end
 #
 # Indexes
 #
-#  index_submissions_on_book_id          (book_id)
-#  index_submissions_on_read_session_id  (read_session_id)
-#  index_submissions_on_user_id          (user_id)
+#  index_submissions_on_book_id                      (book_id)
+#  index_submissions_on_read_session_id              (read_session_id)
+#  index_submissions_on_user_id                      (user_id)
+#  index_submissions_on_user_id_and_read_session_id  (user_id,read_session_id) UNIQUE
 #

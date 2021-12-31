@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_131005) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_club_users_on_club_id"
+    t.index ["user_id", "club_id"], name: "index_club_users_on_user_id_and_club_id", unique: true
     t.index ["user_id"], name: "index_club_users_on_user_id"
   end
 
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_131005) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_submissions_on_book_id"
     t.index ["read_session_id"], name: "index_submissions_on_read_session_id"
+    t.index ["user_id", "read_session_id"], name: "index_submissions_on_user_id_and_read_session_id", unique: true
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CreateReadSessions < ActiveRecord::Migration[7.0]
-  def change
+  def change # rubocop:disable Metrics/MethodLength
     create_table :read_sessions, id: :uuid do |t|
       t.string :name
       t.datetime :next_step_date
