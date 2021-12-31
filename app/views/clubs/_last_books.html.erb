@@ -2,7 +2,7 @@
 
 <div data-controller="carousel" class="swiper-container">
   <div class="swiper-wrapper">
-    <% club.read_sessions.concluded.preload(:selected_book).each do |read_session| %>
+    <% club.read_sessions.concluded.order(read_due_date: :desc).preload(:selected_book).each do |read_session| %>
       <% selected_book = read_session.selected_book %>
       <div class="swiper-slide">
         <div class="rounded-lg mb-3">

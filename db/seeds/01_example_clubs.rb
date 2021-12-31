@@ -156,8 +156,8 @@ club = Club.find_or_create_by(name: 'Tymate', owner: cynthia)
 club.users = [julien, cynthia, maxime, henri, mbela, sonia, esther]
 
 read_session = club.read_sessions.create_with(
-  submission_due_date: 6.months.ago,
-  read_due_date: 5.months.ago
+  submission_due_date: '2020-04-18 19:47:42 UTC',
+  read_due_date: '2020-05-18 19:47:42 UTC'
 ).find_or_create_by(name: 'Session #1')
 
 read_session.submissions
@@ -183,8 +183,8 @@ read_session.submissions.find_each do |submission|
 end
 
 read_session = club.read_sessions.create_with(
-  submission_due_date: 5.months.ago,
-  read_due_date: 4.months.ago
+  submission_due_date: '2020-05-18 19:47:42 UTC',
+  read_due_date: '2020-06-18 19:47:42 UTC'
 ).find_or_create_by(name: 'Session #2')
 read_session.submissions
             .create_with(book: Book.find_by(title: 'Fondation'))
@@ -209,8 +209,8 @@ read_session.submissions.find_each do |submission|
 end
 
 read_session = club.read_sessions.create_with(
-  submission_due_date: 3.months.ago,
-  read_due_date: 2.months.ago
+  submission_due_date: '2020-07-18 19:47:42 UTC',
+  read_due_date: '2020-08-18 19:47:42 UTC'
 ).find_or_create_by(name: 'Session #3')
 
 read_session.submissions
@@ -236,8 +236,8 @@ read_session.submissions.find_each do |submission|
 end
 
 read_session = club.read_sessions.create_with(
-  submission_due_date: Time.zone.now + 1.week,
-  read_due_date: Time.zone.now + 1.month
+  submission_due_date: '2020-09-25 19:47:43 UTC',
+  read_due_date: '2020-10-18 19:47:43 UTC'
 ).find_or_create_by(name: 'Session #4')
 
 read_session.submissions
@@ -259,8 +259,8 @@ read_session.update(selected_book: Book.find_by(title: 'Les androïdes rêvent-i
                     state: 'archived')
 
 read_session = club.read_sessions.create_with(
-  submission_due_date: Time.zone.now + 1.week,
-  read_due_date: Time.zone.now + 1.month,
+  submission_due_date: '2020-11-04 21:28:00 UTC',
+  read_due_date: '2020-11-04 21:28:02 UTC',
   ignore_bonus_score: true
 ).find_or_create_by(name: 'Session #5')
 
