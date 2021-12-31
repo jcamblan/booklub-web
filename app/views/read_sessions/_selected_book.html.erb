@@ -2,7 +2,11 @@
 
 <div class="flex flex-row space-x-5">
   <div class="rounded-lg">
-    <%= image_tag book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
+    <% if book.cover.present?%>
+      <%= image_tag book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
+    <% else %>
+      <%= image_tag '/cover-placeholder.jpg', class: "rounded-lg max-h-56" %>
+    <% end %>
   </div>
   <div class="flex-col flex justify-center">
     <h3 class="font-medium text-xl"><%= book.title %></h3>
