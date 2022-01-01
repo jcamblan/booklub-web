@@ -1,0 +1,11 @@
+<%= render(ScreenComponent.new(back_path: @read_session, title: t('.review_book'))) do %>
+  <%= render(Form::ErrorChunkComponent.new(errors: @note.errors)) %>
+
+  <%= render 'book', book: @note.book %>
+
+  <%= render 'stars' %>
+
+  <%= form_for @note, as: :note, url: read_session_notes_path do |form| %>
+    <%= render 'form', form: form %>
+  <% end %>
+<% end %>

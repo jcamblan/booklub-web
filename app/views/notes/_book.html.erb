@@ -1,0 +1,13 @@
+<div class="flex flex-col mx-auto justify-center">
+  <div class="rounded-lg">
+    <% if book.cover.present?%>
+      <%= image_tag book.cover, class: "rounded-lg max-h-80" %>
+    <% else %>
+      <%= image_tag '/cover-placeholder.jpg', class: "rounded-lg max-h-56" %>
+    <% end %>
+  </div>
+  <div class="flex-col flex justify-center mt-2 mb-5">
+    <h3 class="font-medium text-xl"><%= book.title %></h3>
+    <p class="text-slate-600 font-light"><%= book.authors.pluck(:name).join(', ') %></p>
+  </div>
+</div>

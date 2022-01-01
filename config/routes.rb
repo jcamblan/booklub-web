@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :clubs, only: %i[create new show] do
     resources :read_sessions, only: %i[create new show], shallow: true do
+      resources :notes, only: %i[create new edit update]
       resources :submissions, only: %i[create]
       get '/join' => 'submissions#new'
     end

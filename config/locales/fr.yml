@@ -7,26 +7,31 @@ fr:
           attributes:
             password:
               invalid_current_password: Le mot passe actuel est nécessaire pour modifier l'email ou le mot de passe
+  club_users:
+    new:
+      invitation_code: Code d'invitation
+      join: Rejoindre
+      join_club: Rejoindre un club
   clubs:
     form:
       create_club: Créer mon club
       name: Nom
-    new: 
-      new_club: Nouveau club
-      back_to_clubs: Retour
     last_books:
       last_books: Dernières lectures
       submitted_by: par %{submitters}
     members:
       members: Membres du club
       read_sessions: sessions
-    read_sessions:
-      create: Démarrer une session
     modal:
       club_settings: Paramètres du club
-      invitation_code: "Code d'invitation :"
+      invitation_code: 'Code d''invitation :'
       invitation_description: Donnez le code ci-dessus à un ami pour l'inviter à rejoindre votre club.
       leave: Quitter le club
+    new:
+      back_to_clubs: Retour
+      new_club: Nouveau club
+    read_sessions:
+      create: Démarrer une session
   components:
     form:
       password_input:
@@ -54,6 +59,13 @@ fr:
         draw: Tirage au sort
         reading: Lecture en cours
         submission: Inscription
+  notes:
+    form:
+      review: Noter
+    edit:
+      review_book: Noter le livre
+    new:
+      review_book: Noter le livre
   passwords:
     new:
       reset_password: Réinitialiser mon mot de passe
@@ -93,14 +105,9 @@ fr:
       new_submission: Proposer un livre
   time:
     prefixes:
-      past: Il y a
       future: Dans
+      past: Il y a
   users:
     new:
       sign_in: Se connecter
       sign_up: Créer un compte
-  club_users:
-    new:
-      invitation_code: Code d'invitation
-      join_club: Rejoindre un club
-      join: Rejoindre

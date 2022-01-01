@@ -28,7 +28,7 @@ class Note < ApplicationRecord
   # == Instance Methods ========================================================
 
   def update_book_average_note
-    book.update(average_note: book.notes.average(:value))
+    book.update(average_note: book.notes.average(:value) || 0)
   end
 end
 

@@ -1,0 +1,2 @@
+<%= form.hidden_field :value, id: "noteInputValue", initialValue: @note.value %>
+<%= render(Form::SubmitComponent.new(form: form, text: t(".review"))) %>
