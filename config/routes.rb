@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
   get '/sign_up' => 'clearance/users#new', as: 'sign_up'
 
-  resources :clubs do
+  resources :clubs, only: %i[create new show] do
     resources :read_sessions, only: %i[create new show], shallow: true do
       resources :submissions, only: %i[create]
       get '/join' => 'submissions#new'
