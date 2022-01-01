@@ -49,7 +49,9 @@ fr:
       member: membre
       my_clubs: Mes clubs
     no_club:
-      call_to_join_club: Create or join your first book club and start reading!
+      call_to_join_club: "Rejoins un club ou crée le tiens et que la lecture commence !"
+      join_club: Rejoindre un club
+      create_club: Créer un club
       hey: Salut, %{name} !
   models:
     read_session:
@@ -111,3 +113,5 @@ fr:
     new:
       sign_in: Se connecter
       sign_up: Créer un compte
+      email: Email
+      password: Mot de passe

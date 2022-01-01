@@ -10,9 +10,11 @@
     <% end %>
 
     <div class="flex flex-row justify-between">
-      <h1 class="my-3 text-2xl font-bold">
-        <%= @title %>
-      </h1>
+      <% if @title.present? %>
+        <h1 class="my-3 text-2xl font-bold">
+          <%= @title %>
+        </h1>
+      <% end %>
 
       <% if @modal_toggler %>
         <button>
