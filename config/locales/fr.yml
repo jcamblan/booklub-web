@@ -22,7 +22,10 @@ fr:
       read_sessions: sessions
     read_sessions:
       create: Démarrer une session
-    show:
+    modal:
+      club_settings: Paramètres du club
+      invitation_code: "Code d'invitation :"
+      invitation_description: Donnez le code ci-dessus à un ami pour l'inviter à rejoindre votre club.
       leave: Quitter le club
   components:
     form:

@@ -6,7 +6,13 @@
     <% end %>
   </div>
 
-  <h1 class="my-5 text-2xl font-bold">
-    <%= club.name %>
-  </h1>
+  <div class="flex flex-row justify-between">
+    <h1 class="my-5 text-2xl font-bold">
+      <%= club.name %>
+    </h1>
+
+    <button>
+      <i data-modal-target="button" data-action="click->modal#open" class="fa fa-cog"></i>
+    </button>
+  </div>
 </div>
