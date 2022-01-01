@@ -34,6 +34,7 @@ class ReadSession < ApplicationRecord
 
   after_create :apply_default_name
   after_create :archive_previous_session
+  after_create :set_next_step_date
   before_commit :set_next_step_date
 
   # == State Machine ===========================================================

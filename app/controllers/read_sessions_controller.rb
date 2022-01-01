@@ -9,7 +9,9 @@ class ReadSessionsController < ApplicationController
   end
 
   # GET /clubs/:club_id/sessions/new
-  def new; end
+  def new
+    @read_session = @club.read_sessions.new
+  end
 
   # POST /clubs/:club_id/sessions
   def create

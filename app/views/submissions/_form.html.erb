@@ -25,18 +25,6 @@
 
   <%= form_for :submission, url: read_session_submissions_path do |form| %>
 
-    <% if @submission.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
-
-        <ul>
-          <% @submission.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <%= form.fields_for :book_attributes do |book_field| %>
       <%= book_field.hidden_field :google_book_id, id: "inputBookGoogleId" %>
       <%= book_field.hidden_field :title, id: "inputBookTitle" %>

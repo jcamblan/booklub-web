@@ -1,5 +1,5 @@
-<div class="self-center justify-self-center flex-col flex mx-auto w-full">
-  <%= render 'head', submission: @submission  %>
+<%= render(ScreenComponent.new(back_path: @read_session, title: t('.new_submission'))) do %>
+  <%= render(Form::ErrorChunkComponent.new(errors: @submission.errors)) %>
 
   <%= render "form", read_session: @read_session %>
-</div>
+<% end %>

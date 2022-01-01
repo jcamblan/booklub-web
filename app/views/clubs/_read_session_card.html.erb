@@ -6,7 +6,7 @@
         <i class="fas fa-clock text-indigo-500"></i>
         <span>
           <%= t('.starts') %>
-          <%= prefixed_time(read_session.next_step_date) %>
+          <%= prefixed_time(session.next_step_date) %>
         </span>
       <% else %>
         <span>
@@ -16,10 +16,10 @@
     </p>
   </div>
   <div class="h-full flex pr-12">
-    <% if session.selected_book.cover.present?%>
+    <% if session.selected_book&.cover&.present?%>
       <%= image_tag session.selected_book.cover.variant(:thumb), class: "h-36 m-0 p-0" %>
     <% else %>
-      <%= image_tag '/cover-placeholder.jpg', class: "rounded-lg max-h-56" %>
+      <%= image_tag '/cover-placeholder.jpg', class: "h-36 m-0 p-0" %>
     <% end %>
   </div>
 </div>

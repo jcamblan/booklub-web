@@ -1,14 +1,19 @@
-<div data-controller="modal" class="self-center justify-self-center flex-col flex mx-auto w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<div data-controller="modal" class="w-full">
+
+  <%= render(ScreenComponent.new(back_path: root_path, title: @club.name, modal_toggler: true)) do %>
+
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= render 'read_sessions', club: @club  %>
+    <%= render 'modal', club: @club  %>
+    <%= render 'last_books', club: @club %>
+
+    <hr class="my-5">
+
+    <%= render 'members', club: @club %>
+
   <% end %>
 
-  <%= render 'head', club: @club  %>
-  <%= render 'read_sessions', club: @club  %>
-  <%= render 'modal', club: @club  %>
-  <%= render 'last_books', club: @club %>
-
-  <hr class="my-5">
-
-  <%= render 'members', club: @club %>
 </div>

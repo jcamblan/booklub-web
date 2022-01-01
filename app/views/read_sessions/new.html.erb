@@ -1,12 +1,4 @@
-<div class="self-center justify-self-center flex-col flex mx-auto w-full">
-  <div class="text-indigo-500">
-    <%= link_to club_path(@club) do %>
-      <i class="fa fa-angle-left"></i>
-      <span>Back</span>
-    <% end %>
-  </div>
-
-  <h1 class="my-5 text-2xl font-bold"><%= t('.new_session') %></h1>
-
+<%= render(ScreenComponent.new(back_path: @club, title: t('.new_session'))) do %>
+  <%= render(Form::ErrorChunkComponent.new(errors: @read_session.errors)) %>
   <%= render "form", read_session: @read_session %>
-</div>
+<% end %>
