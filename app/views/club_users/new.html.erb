@@ -1,0 +1,8 @@
+<%= render(ScreenComponent.new(back_path: root_path, title: t('.join_club'))) do %>
+  <%= render(Form::ErrorChunkComponent.new(errors: @club_user.errors)) %>
+
+  <%= form_with url: club_users_path, method: :post do |form| %>
+    <%= render(Form::TextFieldComponent.new(form: form, name: :invitation_code, label: t(".invitation_code"))) %>
+    <%= render(Form::SubmitComponent.new(form: form, text: t(".join"))) %>
+  <% end %>
+<% end %>

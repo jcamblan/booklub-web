@@ -1,22 +1,29 @@
-<h2 class="mb-5 text-lg font-semibold"><%= t('.last_books') %></h2>
+<% read_sessions = club.read_sessions.concluded.order(read_due_date: :desc).preload(:selected_book) %>
 
-<div data-controller="carousel" class="swiper-container">
-  <div class="swiper-wrapper">
-    <% club.read_sessions.concluded.order(read_due_date: :desc).preload(:selected_book).each do |read_session| %>
-      <% selected_book = read_session.selected_book %>
-      <div class="swiper-slide">
-        <div class="rounded-lg mb-3">
-          <%= link_to read_session do %>
-            <% if selected_book.cover.present?%>
-              <%= image_tag selected_book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
-            <% else %>
-              <%= image_tag '/cover-placeholder.jpg', class: "rounded-lg max-h-56" %>
+<% if read_sessions.any? %>
+  <hr class="my-5">
+
+  <h2 class="mb-5 text-lg font-semibold"><%= t('.last_books') %></h2>
+
+  <div data-controller="carousel" class="swiper-container">
+    <div class="swiper-wrapper">
+      <% read_sessions.each do |read_session| %>
+        <% selected_book = read_session.selected_book %>
+        <div class="swiper-slide">
+          <div class="rounded-lg mb-3">
+            <%= link_to read_session do %>
+              <% if selected_book.cover.present?%>
+                <%= image_tag selected_book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
+              <% else %>
+                <%= image_tag '/cover-placeholder.jpg', class: "rounded-lg max-h-56" %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+          <h3 class="font-semibold"><%= selected_book.title %></h3>
+          <p class="text-slate-500"><%= t('.submitted_by', submitters: book_submitters(selected_book, read_session)) %></p>
         </div>
-        <h3 class="font-semibold"><%= selected_book.title %></h3>
-        <p class="text-slate-500"><%= t('.submitted_by', submitters: book_submitters(selected_book, read_session)) %></p>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+
+<% end %>

@@ -15,6 +15,6 @@ pin '@hotwired/stimulus', to: 'https://ga.jspm.io/npm:@hotwired/stimulus@3.0.1/d
 pin 'dom7', to: 'https://ga.jspm.io/npm:dom7@4.0.2/dom7.esm.js'
 pin 'ssr-window', to: 'https://ga.jspm.io/npm:ssr-window@4.0.2/ssr-window.esm.js'
 pin 'swiper/bundle', to: 'https://ga.jspm.io/npm:swiper@7.4.1/swiper-bundle.esm.js'
-pin "stimulus-use", to: "https://ga.jspm.io/npm:stimulus-use@0.41.0/dist/index.js"
-pin "hotkeys-js", to: "https://ga.jspm.io/npm:hotkeys-js@3.8.7/dist/hotkeys.esm.js"
-pin "stimulus", to: "https://ga.jspm.io/npm:stimulus@2.0.0/dist/stimulus.umd.js"
+pin 'stimulus-use', to: 'https://ga.jspm.io/npm:stimulus-use@0.41.0/dist/index.js'
+pin 'hotkeys-js', to: 'https://ga.jspm.io/npm:hotkeys-js@3.8.7/dist/hotkeys.esm.js'
+pin 'stimulus', to: 'https://ga.jspm.io/npm:stimulus@2.0.0/dist/stimulus.umd.js'

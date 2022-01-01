@@ -99,3 +99,8 @@ fr:
     new:
       sign_in: Se connecter
       sign_up: Créer un compte
+  club_users:
+    new:
+      invitation_code: Code d'invitation
+      join_club: Rejoindre un club
+      join: Rejoindre
