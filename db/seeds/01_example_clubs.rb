@@ -161,52 +161,43 @@ read_session = club.read_sessions.create_with(
 ).find_or_create_by(name: 'Session #1')
 
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Ubik'))
+            .create_with(book: Book.find_by(google_book_id: 'SlNIxp0uSR0C'))
             .find_or_create_by(user: julien)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Le dahlia noir'))
+            .create_with(book: Book.find_by(google_book_id: '7uysBwAAQBAJ'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Des fleurs pour Algernon'))
+            .create_with(book: Book.find_by(google_book_id: 'QUo6AAAACAAJ'))
             .find_or_create_by(user: maxime)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Bazaar'))
+            .create_with(book: Book.find_by(google_book_id: 'XBUBEAAAQBAJ'))
             .find_or_create_by(user: henri)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Le monde selon Garp'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'GKnMucLt5VsC'))
             .find_or_create_by(user: mbela)
-read_session.update(selected_book: Book.find_by(title: 'Le dahlia noir'), state: 'archived')
-
-read_session.submissions.find_each do |submission|
-  read_session.notes.create_with(value: Note::VALID_NOTES.sample)
-              .find_or_create_by(user: submission.user, book: read_session.selected_book)
-end
+read_session.update(selected_book: Book.find_by(google_book_id: '7uysBwAAQBAJ'), state: 'archived')
 
 read_session = club.read_sessions.create_with(
   submission_due_date: '2020-05-18 19:47:42 UTC',
   read_due_date: '2020-06-18 19:47:42 UTC'
 ).find_or_create_by(name: 'Session #2')
+
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Fondation'))
+            .create_with(book: Book.find_by(google_book_id: 'TWKQPwAACAAJ'))
             .find_or_create_by(user: julien)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Le portrait de Dorian Gray'))
+            .create_with(book: Book.find_by(google_book_id: 'nxCiBgAAQBAJ'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Des fleurs pour Algernon'))
+            .create_with(book: Book.find_by(google_book_id: 'QUo6AAAACAAJ'))
             .find_or_create_by(user: maxime)
 read_session.submissions
-            .create_with(book: Book.find_by(title: "Candide ou l'optimisme"))
+            .create_with(book: Book.find_by(google_book_id: 'p1J4fMW0PyoC'))
             .find_or_create_by(user: henri)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Le monde selon Garp'))
+            .create_with(book: Book.find_by(google_book_id: 'GKnMucLt5VsC'))
             .find_or_create_by(user: mbela)
-read_session.update(selected_book: Book.find_by(title: 'Le portrait de Dorian Gray'), state: 'archived')
-
-read_session.submissions.find_each do |submission|
-  read_session.notes.create_with(value: Note::VALID_NOTES.sample)
-              .find_or_create_by(user: submission.user, book: read_session.selected_book)
-end
+read_session.update(selected_book: Book.find_by(google_book_id: 'nxCiBgAAQBAJ'), state: 'archived')
 
 read_session = club.read_sessions.create_with(
   submission_due_date: '2020-07-18 19:47:42 UTC',
@@ -214,26 +205,21 @@ read_session = club.read_sessions.create_with(
 ).find_or_create_by(name: 'Session #3')
 
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'La chute des géants'))
+            .create_with(book: Book.find_by(google_book_id: 'LtWzcQAACAAJ'))
             .find_or_create_by(user: julien)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Le vol des cygognes'))
+            .create_with(book: Book.find_by(google_book_id: 'fQSvYSesRUAC'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Des fleurs pour Algernon'))
+            .create_with(book: Book.find_by(google_book_id: 'QUo6AAAACAAJ'))
             .find_or_create_by(user: maxime)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Orgueil et Préjugés'))
+            .create_with(book: Book.find_by(google_book_id: 'C_pSDwAAQBAJ'))
             .find_or_create_by(user: henri)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'La Conjuration des imbéciles'))
+            .create_with(book: Book.find_by(google_book_id: 'q8aXDwAAQBAJ'))
             .find_or_create_by(user: mbela)
-read_session.update(selected_book: Book.find_by(title: 'Le vol des cygognes'), state: 'archived')
-
-read_session.submissions.find_each do |submission|
-  read_session.notes.create_with(value: Note::VALID_NOTES.sample)
-              .find_or_create_by(user: submission.user, book: read_session.selected_book)
-end
+read_session.update(selected_book: Book.find_by(google_book_id: 'fQSvYSesRUAC'), state: 'archived')
 
 read_session = club.read_sessions.create_with(
   submission_due_date: '2020-09-25 19:47:43 UTC',
@@ -241,21 +227,21 @@ read_session = club.read_sessions.create_with(
 ).find_or_create_by(name: 'Session #4')
 
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'La chute des géants'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'LtWzcQAACAAJ'))
             .find_or_create_by(user: julien)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'La Ferme des animaux'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'XDE3ngEACAAJ'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Des fleurs pour Algernon'))
+            .create_with(book: Book.find_by(google_book_id: 'QUo6AAAACAAJ'))
             .find_or_create_by(user: maxime)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Les androïdes rêvent-ils de moutons électriques ?'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'YC4tDwAAQBAJ'))
             .find_or_create_by(user: henri)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'La Ferme des animaux'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'XDE3ngEACAAJ'))
             .find_or_create_by(user: mbela)
-read_session.update(selected_book: Book.find_by(title: 'Les androïdes rêvent-ils de moutons électriques ?'),
+read_session.update(selected_book: Book.find_by(google_book_id: 'YC4tDwAAQBAJ'),
                     state: 'archived')
 
 read_session = club.read_sessions.create_with(
@@ -265,21 +251,21 @@ read_session = club.read_sessions.create_with(
 ).find_or_create_by(name: 'Session #5')
 
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'TS3j8ZTpaG0C'))
             .find_or_create_by(user: julien)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'TS3j8ZTpaG0C'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Ils étaient Dix'))
+            .create_with(book: Book.find_by(google_book_id: 'TS3j8ZTpaG0C'))
             .find_or_create_by(user: maxime)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'TS3j8ZTpaG0C'))
             .find_or_create_by(user: henri)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Ils étaient Dix'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'TS3j8ZTpaG0C'))
             .find_or_create_by(user: mbela)
-read_session.update(selected_book: Book.find_by(title: 'Ils étaient Dix'),
+read_session.update(selected_book: Book.find_by(google_book_id: 'TS3j8ZTpaG0C'),
                     state: 'archived')
 
 read_session = club.read_sessions.create_with(
@@ -288,24 +274,24 @@ read_session = club.read_sessions.create_with(
 ).find_or_create_by(name: 'Session #6')
 
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'La chute des géants'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'LtWzcQAACAAJ'))
             .find_or_create_by(user: julien)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'La chute des géants'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'LtWzcQAACAAJ'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_by(title: 'Martin Eden'))
+            .create_with(book: Book.find_by(google_book_id: 'MzvnDwAAQBAJ'))
             .find_or_create_by(user: maxime)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: "Le crépuscule et l'aube"))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'A9zODwAAQBAJ'))
             .find_or_create_by(user: henri)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Ravage'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'rCgWQgAACAAJ'))
             .find_or_create_by(user: mbela)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: '2084 : La fin du monde'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'KNgwDgAAQBAJ'))
             .find_or_create_by(user: sonia)
-read_session.update(selected_book: Book.find_by(title: "Le crépuscule et l'aube"),
+read_session.update(selected_book: Book.find_by(google_book_id: 'A9zODwAAQBAJ'),
                     state: 'archived')
 
 read_session = club.read_sessions.create_with(
@@ -314,17 +300,15 @@ read_session = club.read_sessions.create_with(
 ).find_or_create_by(name: 'Session #7')
 
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: "La promesse de l'aube"))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'QiHQMXVUcFoC'))
             .find_or_create_by(user: esther)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Marie-Antoinette'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'eEFCAQAACAAJ'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(
-              title: "L'art subtil de s'en foutre: Un guide à contre-courant pour être soi-même"
-            ))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'ag4oDwAAQBAJ'))
             .find_or_create_by(user: henri)
-read_session.update(selected_book: Book.find_by(title: "La promesse de l'aube"),
+read_session.update(selected_book: Book.find_by(google_book_id: 'QiHQMXVUcFoC'),
                     state: 'archived')
 
 read_session = club.read_sessions.create_with(
@@ -333,21 +317,21 @@ read_session = club.read_sessions.create_with(
 ).find_or_create_by(name: 'Session #8')
 
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: "Ne tirez pas sur l'oiseau moqueur"))
+            .create_with(book: Book.find_or_create_by(google_book_id: '-n4gCgAAQBAJ'))
             .find_or_create_by(user: esther)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: "Ne tirez pas sur l'oiseau moqueur"))
+            .create_with(book: Book.find_or_create_by(google_book_id: '-n4gCgAAQBAJ'))
             .find_or_create_by(user: cynthia)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Dark Matter'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'hsyeDQAAQBAJ'))
             .find_or_create_by(user: henri)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Palimpseste'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'BL4njwEACAAJ'))
             .find_or_create_by(user: julien)
 read_session.submissions
-            .create_with(book: Book.find_or_create_by(title: 'Survivant des glaces'))
+            .create_with(book: Book.find_or_create_by(google_book_id: 'PwlBEAAAQBAJ'))
             .find_or_create_by(user: christian)
-read_session.update(selected_book: Book.find_by(title: "Ne tirez pas sur l'oiseau moqueur"),
+read_session.update(selected_book: Book.find_by(google_book_id: '-n4gCgAAQBAJ'),
                     state: 'reading')
 
 ClubUser.find_each(&:refresh_stats)
