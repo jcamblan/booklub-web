@@ -1,4 +1,7 @@
-<% read_sessions = club.read_sessions.concluded.order(read_due_date: :desc).preload(:selected_book) %>
+<% read_sessions = club.read_sessions.where_assoc_exists(:selected_book)
+                                     .concluded
+                                     .order(read_due_date: :desc)
+                                     .preload(:selected_book) %>
 
 <% if read_sessions.any? %>
   <hr class="my-5">

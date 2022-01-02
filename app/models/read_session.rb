@@ -48,8 +48,8 @@ class ReadSession < ApplicationRecord
 
     event :start_draw do
       after do
-        if submissions.count.zero?
-          destroy!
+        if submissions.count < 2
+          update!(ignore_bonus_score: true, state: :conclusion)
         else
           SessionDrawJob.perform_later(id)
         end

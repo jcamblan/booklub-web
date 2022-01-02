@@ -15,7 +15,10 @@ class ReadSessionsController < ApplicationController
 
   # POST /clubs/:club_id/sessions
   def create
-    @read_session = ReadSession.new(read_session_params.merge(club: @club))
+    @read_session = ReadSession.new(
+      read_session_params.merge(club: @club,
+                                next_step_date: read_session_params[:submission_due_date])
+    )
 
     if @read_session.save
       redirect_to @read_session, notice: 'Session was successfully created.'
