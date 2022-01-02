@@ -7,6 +7,7 @@ ruby '3.1.0'
 
 gem 'aasm' # https://github.com/aasm/aasm
 gem 'activerecord_where_assoc', '~> 1.1'
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'clearance', '~> 2.5'
 gem 'counter_culture', '~> 3.1'

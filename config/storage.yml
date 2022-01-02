@@ -11,7 +11,7 @@ digitalocean:
   access_key_id: <%= ENV['DIGITALOCEAN_ACCESS_KEY_ID'] %>
   secret_access_key: <%= ENV['DIGITALOCEAN_ACCESS_KEY'] %>
   region: fra1
-  bucket: booklub-images
+  bucket: booklub
   endpoint: https://fra1.digitaloceanspaces.com
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
