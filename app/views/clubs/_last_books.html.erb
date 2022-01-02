@@ -16,7 +16,7 @@
           <div class="rounded-lg mb-3">
             <%= link_to read_session do %>
               <% if selected_book.cover.present?%>
-                <%= image_tag selected_book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
+                <%= image_tag selected_book.cover, class: "rounded-lg max-h-56" %>
               <% else %>
                 <%= image_tag '/cover-placeholder.jpg', class: "rounded-lg max-h-56" %>
               <% end %>
