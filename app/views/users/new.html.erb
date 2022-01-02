@@ -4,6 +4,7 @@
 
   <%= form_for @user do |form| %>
     <%= render(Form::TextFieldComponent.new(form: form, name: :email, label: t(".email"))) %>
+    <%= render(Form::TextFieldComponent.new(form: form, name: :username, label: t(".username"))) %>
     <%= render(Form::PasswordFieldComponent.new(form: form, name: :password, label: t(".password"))) %>
     <%= render(Form::SubmitComponent.new(form: form, text: t(".sign_up"))) %>
   <% end %>
