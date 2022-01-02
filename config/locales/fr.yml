@@ -53,6 +53,14 @@ fr:
       join_club: Rejoindre un club
       create_club: Créer un club
       hey: Salut, %{name} !
+    modal:
+      settings: Paramètres
+      update_personal_infos: Modifier vos informations personnelles
+      email: Email
+      username: Nom d'utilisateur·ice
+      password: Mot de passe
+      update: Mettre à jour
+      sign_out: Se déconnecter
   models:
     read_session:
       state:
@@ -70,6 +78,7 @@ fr:
       review_book: Noter le livre
   passwords:
     new:
+      email: Email
       reset_password: Réinitialiser mon mot de passe
       sign_in: Se connecter
   read_sessions:
