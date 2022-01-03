@@ -97,4 +97,5 @@ Rails.application.configure do
 
   config.hosts << 'booklub.osc-fr1.scalingo.io'
   config.hosts << 'booklub-pr1.osc-fr1.scalingo.io'
+  config.hosts << 'www.booklub.app'
 end
