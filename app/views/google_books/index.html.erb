@@ -3,19 +3,19 @@
     <% @google_books.each do |book| %>
       <%= render(SeparatorComponent.new) %>
 
-      <div class="flex flex-row space-x-2">
+      <div class="grid-cols-3  grid gap-4">
         <div class="rounded-lg">
           <% if book.dig(:volumeInfo, :imageLinks, :smallThumbnail).present? %>
-            <%= image_tag book.dig(:volumeInfo, :imageLinks, :smallThumbnail), class: "rounded-lg min-w-full" %>
+            <%= image_tag book.dig(:volumeInfo, :imageLinks, :smallThumbnail), class: "rounded-lg max-h-80" %>
           <% end %>
         </div>
-        <div class="">
-          <h2><%= book.dig(:volumeInfo, :title) %></h2>
-          <p><%= book.dig(:volumeInfo, :authors).join(', ') %></p>
+        <div class="col-span-2 flex-col flex justify-center">
+          <h2 class="font-medium text-xl"><%= book.dig(:volumeInfo, :title) %></h2>
+          <p class="text-zinc-200 font-light"><%= book.dig(:volumeInfo, :authors).join(', ') %></p>
           <button data-action="click->submission#add"
             bookGoogleId="<%= book[:id] %>"
             bookTitle="<%= book.dig(:volumeInfo, :title) %>"
-            class="inline-flex items-center flex-grow justify-center px-5 py-3
+            class="mt-3 inline-flex items-center justify-center px-5 py-3
             border border-transparent text-base font-medium rounded-lg
             text-white bg-indigo-600 hover:bg-indigo-700">
             <%= t('.submit-book') %>

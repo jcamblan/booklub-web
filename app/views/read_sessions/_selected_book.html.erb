@@ -13,7 +13,7 @@
   </div>
   <div class="flex-col flex justify-center">
     <h3 class="font-medium text-xl"><%= book.title %></h3>
-    <p class="text-slate-600 font-light"><%= book.authors.pluck(:name).join(', ') %></p>
+    <p class="text-zinc-600 font-light"><%= book.authors.pluck(:name).join(', ') %></p>
     <%= render(StarsComponent.new(note: @read_session.notes.average(:value))) %>
   </div>
 </div>

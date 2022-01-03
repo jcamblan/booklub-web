@@ -1,7 +1,6 @@
 <%= form_for :read_session, url: club_read_sessions_path do |form| %>
-  <%= render '/components/form/text_input', name: :name, form: form, label: t('.session_name'), default_value: next_session_name(@club) %>
-  <%= render '/components/form/datetime_input', name: :submission_due_date, form: form, label: t('.submission_due_date')  %>
-  <%= render '/components/form/datetime_input', name: :read_due_date, form: form, label: t('.read_due_date')  %>
-
-  <%= render partial: '/components/form/submit', locals: { form: form, text: t(".create")} %>
+  <%= render(Form::TextFieldComponent.new(form: form, name: :name, label: t(".session_name"), default_value: next_session_name(@club))) %>
+  <%= render(Form::DateTimeInputComponent.new(form: form, name: :submission_due_date, label: t(".submission_due_date"))) %>
+  <%= render(Form::DateTimeInputComponent.new(form: form, name: :read_due_date, label: t(".read_due_date"))) %>
+  <%= render(Form::SubmitComponent.new(form: form, text: t(".create"))) %>
 <% end %>
