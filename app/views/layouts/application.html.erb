@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BooklubWeb</title>
+    <title>Booklub 📚</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +12,8 @@
     <% if Rails.env.development? %>
       <%= hotwire_livereload_tags %>
     <% end %>
+
+    <%= favicon_link_tag asset_path('favicon.png') %>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://kit.fontawesome.com/b51fb088be.js" crossorigin="anonymous"></script>
