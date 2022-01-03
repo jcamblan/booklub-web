@@ -96,4 +96,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   config.hosts << 'booklub.osc-fr1.scalingo.io'
+  config.hosts << 'booklub-pr1.osc-fr1.scalingo.io'
+  config.hosts << 'www.booklub.app'
 end
