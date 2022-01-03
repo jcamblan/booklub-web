@@ -6,7 +6,7 @@
       <div  class="swiper-slide">
         <div class="rounded-lg">
           <% if book.cover.present?%>
-            <%= image_tag book.cover, class: "rounded-lg max-h-56" %>
+            <%= image_tag book.cover.variant(:thumb), class: "rounded-lg max-h-56" %>
           <% else %>
             <%= image_tag '/cover-placeholder.jpg', class: "rounded-lg max-h-56" %>
           <% end %>

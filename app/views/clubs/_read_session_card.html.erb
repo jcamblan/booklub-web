@@ -17,7 +17,7 @@
   </div>
   <div class="h-full flex pr-12">
     <% if session.selected_book&.cover&.present?%>
-      <%= image_tag session.selected_book.cover, class: "h-36 m-0 p-0" %>
+      <%= image_tag session.selected_book.cover.variant(:thumb), class: "h-36 m-0 p-0" %>
     <% else %>
       <%= image_tag '/cover-placeholder.jpg', class: "h-36 m-0 p-0" %>
     <% end %>

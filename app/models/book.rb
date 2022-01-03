@@ -11,10 +11,9 @@ class Book < ApplicationRecord
   has_many :authors, through: :author_books
   has_many :notes, dependent: :destroy
 
-  has_one_attached :cover
-  # has_one_attached :cover do |attachable|
-  #   attachable.variant :thumb, resize_to_fill: [300, 450]
-  # end
+  has_one_attached :cover do |attachable|
+    attachable.variant :thumb, resize_to_fill: [300, 450]
+  end
 
   # == Validations =============================================================
 
