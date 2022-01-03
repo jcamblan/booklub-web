@@ -10,7 +10,7 @@
     <%= render 'modal', club: @club  %>
     <%= render 'last_books', club: @club %>
 
-    <hr class="my-5">
+    <%= render(SeparatorComponent.new) %>
 
     <%= render 'members', club: @club %>
 

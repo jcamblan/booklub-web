@@ -1,7 +1,7 @@
 <turbo-frame id="<%= params.fetch(:turbo_frame, "search_results") %>">
   <div class="flex flex-col space-y-8">
     <% @google_books.each do |book| %>
-      <hr class="">
+      <%= render(SeparatorComponent.new) %>
 
       <div class="flex flex-row space-x-2">
         <div class="rounded-lg">

@@ -4,7 +4,7 @@
                                      .preload(:selected_book) %>
 
 <% if read_sessions.any? %>
-  <hr class="my-5">
+  <%= render(SeparatorComponent.new) %>
 
   <h2 class="mb-5 text-lg font-semibold"><%= t('.last_books') %></h2>
 
@@ -23,7 +23,7 @@
             <% end %>
           </div>
           <h3 class="font-semibold"><%= selected_book.title %></h3>
-          <p class="text-slate-500"><%= t('.submitted_by', submitters: book_submitters(selected_book, read_session)) %></p>
+          <p class="text-zinc-500"><%= t('.submitted_by', submitters: book_submitters(selected_book, read_session)) %></p>
         </div>
       <% end %>
     </div>

@@ -109,6 +109,7 @@ fr:
       forgot_password: Mot de passe oublié
       sign_in: Se connecter
       sign_up: Créer un compte
+      password: Mot de passe
   submissions:
     form:
       search-book-author: Titre, auteur...
