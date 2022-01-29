@@ -20,7 +20,7 @@ scaleway:
   secret_access_key: <%= ENV['S3_BUCKET_SECRET_KEY'] %>
   region: fr-par
   bucket: booklub
-  endpoint: https://booklub.s3.fr-par.scw.cloud
+  endpoint: https://s3.fr-par.scw.cloud
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
